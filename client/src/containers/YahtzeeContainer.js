@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
-import { calculateCategoryScore } from '../helpers/YahtzeeHelper'
+import { postRoll, putRoll, calculateCategoryScore } from '../helpers/YahtzeeHelper'
+
 
 
 
@@ -22,7 +23,7 @@ useEffect(() => {
 const getCurrentRoll = function() {
   fetch('http://localhost:9000/api/rolls')
   .then(res => res.json())
-  .then(data => setCurrentRoll(data))
+  .then(data => setCurrentRoll(data[0].roll))
 }
 
 
@@ -49,6 +50,8 @@ const rollDice = () => {
     }
   }
   setCurrentRoll(tempDice);
+  putRoll(tempDice);
+
   console.log("Dice rolled")
   console.log(currentRoll)
   console.log("Return")
