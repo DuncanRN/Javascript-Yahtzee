@@ -11,6 +11,20 @@ const ScoreSheet = () => {
                 <li>4s - 0</li>
                 <li>5s - 0</li>
                 <li>6s - 0</li>
+                <li>Bonus</li>
+                <li>Upper Total</li>
+
+
+                <br />
+                <li>Three of a Kind</li>
+                <li>Four of a Kind</li>
+                <li>Full House</li>
+                <li>Small Straight</li>
+                <li>Large Straight</li>
+                <li>Yahtzee</li>
+                <li>Chance</li>
+                <li>Lower Total</li>
+                <li>Grand Total</li>
 
             </ul>
         </div>
