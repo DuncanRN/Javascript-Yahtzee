@@ -1,11 +1,11 @@
 import './App.css';
-import MainContainer from './containers/MainContainer';
+import YahtzeeContainer from './containers/YahtzeeContainer';
 
 function App() {
   return (
     <>
     <h1>Yahtzee!</h1>
-    <MainContainer />
+    <YahtzeeContainer />
     </>
   );
 }
