@@ -2,60 +2,45 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
-import { postRoll, putRoll, calculateCategoryScore } from '../helpers/YahtzeeHelper'
-
+import YahtzeeService from '../services/YahtzeeService';
 
 
 
 const MainContainer = () => {
 
 // TODO setup States here
-// required states - scores, rollsThisTurn
+// required states - scores
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
 
 useEffect(() => {
-  // rollDice;
-  getCurrentRoll();
-}, [])
-
-const getCurrentRoll = function() {
-  fetch('http://localhost:9000/api/rolls')
-  .then(res => res.json())
+  YahtzeeService.getRolls()
   .then(data => setCurrentRoll(data[0].roll))
-}
+}, [])
 
 
 // TODO function rollDice() - will use currentRoll & lockedDice. Those don't need passed in since they are states
 // remember to increase rollsThisTurn by 1 after we roll
 // remember to pass rollDice down to DiceRoller component
 
-// const rollUnlockedDice = function() {
-
-//   const roll = 1 + Math.floor(Math.random() * 6);
-
-//   setCurrentRoll([roll, roll, roll, roll, roll])
-//   console.log(currentRoll);
-//   console.log("Rolled Dice")
-//   return
-// };
-
 const rollDice = () => {
   const tempDice = currentRoll;
   for (let i = 0; i < lockedDice.length; i++) {
-    if (lockedDice[i] == false) {
+    if (lockedDice[i] === false) {
         const roll = 1 + Math.floor(Math.random() * 6);
         tempDice[i] = roll;
     }
   }
-  setCurrentRoll(tempDice);
-  putRoll(tempDice);
+
+  const tempArray = [tempDice[0], tempDice[1], tempDice[2], tempDice[3], tempDice[4]];
+  setCurrentRoll(tempArray);
+
+  // YahtzeeService.updateRoll(tempDice);
+//Doesn't work
 
   console.log("Dice rolled")
   console.log(currentRoll)
-  console.log("Return")
-  return
 };
 
 // TODO function lockDice(dicePos) - toggles the boolean value at position 'dicePos' in the state array lockedDice
