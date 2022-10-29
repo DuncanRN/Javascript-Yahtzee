@@ -36,8 +36,7 @@ const rollDice = () => {
   const tempArray = [tempDice[0], tempDice[1], tempDice[2], tempDice[3], tempDice[4]];
   setCurrentRoll(tempArray);
 
-  // YahtzeeService.updateRoll(tempDice);
-//Doesn't work
+  YahtzeeService.addRoll(currentRoll);
 
   console.log("Dice rolled")
   console.log(currentRoll)

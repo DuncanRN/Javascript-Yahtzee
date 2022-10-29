@@ -10,7 +10,7 @@ const YahtzeeService = {
     addRoll(roll) {
       return fetch(baseRollsURL, {
         method: 'POST',
-        body: JSON.stringify(roll),
+        body: JSON.stringify({"roll" : roll}),
         headers: {
           'Content-Type': 'application/json'
         }
