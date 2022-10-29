@@ -4,12 +4,56 @@ import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
 import { calculateCategoryScore } from '../helpers/YahtzeeHelper'
 
+
+
+const MainContainer = () => {
+
 // TODO setup States here
-// required states - scores, currentRoll, lockedDice, rollsThisTurn
+// required states - scores, rollsThisTurn
+const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
+const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
+const [rollsThisTurn, setRollsThisTurn] = useState(0)
+
+useEffect(() => {
+  // rollDice;
+  getCurrentRoll();
+}, [])
+
+const getCurrentRoll = function() {
+  fetch('http://localhost:9000/api/rolls')
+  .then(res => res.json())
+  .then(data => setCurrentRoll(data))
+}
+
 
 // TODO function rollDice() - will use currentRoll & lockedDice. Those don't need passed in since they are states
 // remember to increase rollsThisTurn by 1 after we roll
 // remember to pass rollDice down to DiceRoller component
+
+// const rollUnlockedDice = function() {
+
+//   const roll = 1 + Math.floor(Math.random() * 6);
+
+//   setCurrentRoll([roll, roll, roll, roll, roll])
+//   console.log(currentRoll);
+//   console.log("Rolled Dice")
+//   return
+// };
+
+const rollDice = () => {
+  const tempDice = currentRoll;
+  for (let i = 0; i < lockedDice.length; i++) {
+    if (lockedDice[i] == false) {
+        const roll = 1 + Math.floor(Math.random() * 6);
+        tempDice[i] = roll;
+    }
+  }
+  setCurrentRoll(tempDice);
+  console.log("Dice rolled")
+  console.log(currentRoll)
+  console.log("Return")
+  return
+};
 
 // TODO function lockDice(dicePos) - toggles the boolean value at position 'dicePos' in the state array lockedDice
 // remember to pass this down to the DiceRoller component
@@ -17,17 +61,14 @@ import { calculateCategoryScore } from '../helpers/YahtzeeHelper'
 // TODO function setScore() will take the currentRoll and the categoryID from the category the user has just clicked.
 // it will use calculateCategoryScore() which is imported from YahtzeeHelper.js
 // it will set that score into the array 'scores' at the position categoryID
-
-
-
-
-
-const MainContainer = () => {
   return (
     <>
     <div>This is the Main Container! Renamed to YahtzeeContainer. <br/>I like to hold states.</div>
 
-    <div><DiceRoller /></div>
+    <div><DiceRoller
+    rollDice={rollDice}
+    currentRoll={currentRoll}/>
+    </div>
     <div><ScoreSheet /></div>
     </>
   );

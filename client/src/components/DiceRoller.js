@@ -8,11 +8,22 @@ import React from 'react';
 
 // TODO if rollsThisTurn = 3 then we are at the end of the turn. don't show the "Roll Dice" button
 
-const DiceRoller = () => {
+
+const DiceRoller = ({rollDice, currentRoll}) => {
+
+    const handleClick = function() {
+        rollDice();
+      };
+
+
+
+
     return (
         <div id="dice-roller">
             <h2>Roll the Dice</h2>
             d1, d2, d3, d4, d5
+            <p>      {currentRoll}</p>
+            <button onClick={handleClick}>Roll Dice!</button>
         </div>
     )
 
