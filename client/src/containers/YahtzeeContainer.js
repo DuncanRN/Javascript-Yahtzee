@@ -47,6 +47,11 @@ const toggleLockDice = (i) => {
   setLockedDice(tempBoolArray)
 };
 
+const endTurn = () => {
+  setRollsThisTurn(0);
+  console.log("Ended Turn")
+}
+
 // TODO function setScore() will take the currentRoll and the categoryID from the category the user has just clicked.
 // it will use calculateCategoryScore() which is imported from YahtzeeHelper.js
 // it will set that score into the array 'scores' at the position categoryID
@@ -55,7 +60,9 @@ const toggleLockDice = (i) => {
     <div>This is the Main Container! Renamed to YahtzeeContainer. <br/>I like to hold states.</div>
 
     <div><DiceRoller
-    rollDice={rollDice}/>
+    rollDice={rollDice}
+    endTurn={endTurn}
+    rollsThisTurn={rollsThisTurn}/>
     </div>
     <div><DiceDisplay
     currentRoll={currentRoll}
