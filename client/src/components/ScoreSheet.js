@@ -1,16 +1,24 @@
 import React from 'react';
 
-const ScoreSheet = () => {
+const ScoreSheet = ({scores, currentRoll, setScore}) => {
+
+
+
+    const handleScoreClick = function(event) {
+        setScore(event.target.value);
+
+    };
+
     return (
         <div id="score-sheer">
             <h2>Scoring Categories</h2>
             <ul>
-                <li>1s - 0</li>
-                <li>2s - 0</li>
-                <li>3s - 0</li>
-                <li>4s - 0</li>
-                <li>5s - 0</li>
-                <li>6s - 0</li>
+                <li><button value="1s" onClick={handleScoreClick}>1s - 0</button></li>
+                <li><button value="2s" onClick={handleScoreClick}>2s - 0</button></li>
+                <li><button value="3s" onClick={handleScoreClick}>3s - 0</button></li>
+                <li><button value="4s" onClick={handleScoreClick}>4s - 0</button></li>
+                <li><button value="5s" onClick={handleScoreClick}>5s - 0</button></li>
+                <li><button value="6s" onClick={handleScoreClick}>6s - 0</button></li>
                 <li>Bonus</li>
                 <li>Upper Total</li>
 

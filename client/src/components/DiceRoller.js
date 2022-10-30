@@ -9,18 +9,30 @@ import React from 'react';
 // TODO if rollsThisTurn = 3 then we are at the end of the turn. don't show the "Roll Dice" button
 
 
-const DiceRoller = ({rollDice}) => {
+const DiceRoller = ({rollDice, rollsThisTurn}) => {
 
     const handleClick = function() {
         rollDice();
     };
 
-    return (
-        <div id="dice-roller">
-            <button onClick={handleClick}>Roll Dice!</button>
-        </div>
-    )
-
+    if(rollsThisTurn==3){
+        return(
+            <div id="dice-roller">
+                <h3>Turn Complete.</h3> 
+                <p>
+                    End your turn by clicking on a scoresheet category.
+                </p>
+            </div>
+        )
+    }
+    else
+    {
+        return (
+            <div id="dice-roller">
+                <button onClick={handleClick}>Roll Dice!</button>
+            </div>
+        )
+    }
 }
 
 export default DiceRoller;
