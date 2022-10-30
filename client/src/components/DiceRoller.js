@@ -28,6 +28,7 @@ const DiceRoller = ({
         <button onClick={handleEndTurn}>End Turn</button>
         }
         </div>
+        <div>Turn: {rollsThisTurn}</div>
         </>
     )
 
