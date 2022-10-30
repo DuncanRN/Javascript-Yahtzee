@@ -13,7 +13,7 @@ const DiceRoller = ({rollDice}) => {
 
     const handleClick = function() {
         rollDice();
-      };
+    };
 
     return (
         <div id="dice-roller">

@@ -1,19 +1,31 @@
 import React from 'react'
 import SingleDie from './SingleDie';
 
-const DiceDisplay = ({currentRoll, toggleLockDice}) => {
+const DiceDisplay = ({currentRoll, toggleLockDice, lockedDice}) => {
 
     const diceNumbers = currentRoll.map((dieNumber, index) => {
-      return <SingleDie
-      dieNumber={dieNumber}
-      key={index}
-      index={index}
-      
-      toggleLockDice={toggleLockDice}/>
+      return (
+                <li>
+                  <SingleDie
+                    dieNumber={dieNumber}
+                    key={index}
+                    index={index}
+                    
+                    toggleLockDice={toggleLockDice}
+                    isThisDiceLocked={lockedDice[index]}
+                    
+                    />
+                </li>
+      )
     });
 
   return (
-    <div>{diceNumbers}</div>
+    <div>
+        <ul className='dice-display'>
+          {diceNumbers}
+        </ul>
+    
+    </div>
   );
 };
 
