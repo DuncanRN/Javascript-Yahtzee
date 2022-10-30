@@ -20,11 +20,6 @@ useEffect(() => {
   .then(data => setCurrentRoll(data[0].roll))
 }, []);
 
-
-// TODO function rollDice() - will use currentRoll & lockedDice. Those don't need passed in since they are states
-// remember to increase rollsThisTurn by 1 after we roll
-// remember to pass rollDice down to DiceRoller component
-
 const rollDice = () => {
   const tempDice = currentRoll;
   for (let i = 0; i < lockedDice.length; i++) {
@@ -38,13 +33,19 @@ const rollDice = () => {
   setCurrentRoll(tempArray);
 
   YahtzeeService.addRoll(currentRoll);
+  setRollsThisTurn(rollsThisTurn+1);
 
-  console.log("Dice rolled")
-  console.log(currentRoll)
+  console.log("Dice rolled") // Can be removed!
+  console.log(currentRoll)  //Can be removed!
 };
 
-// TODO function lockDice(dicePos) - toggles the boolean value at position 'dicePos' in the state array lockedDice
-// remember to pass this down to the DiceRoller component
+const toggleLockDice = (i) => {
+  const tempBoolObject = lockedDice
+  const tempBoolArray = [tempBoolObject[0], tempBoolObject[1], tempBoolObject[2], tempBoolObject[3], tempBoolObject[4]];
+  const bool = !tempBoolObject[i]
+  tempBoolArray.splice(i, 1, bool)
+  setLockedDice(tempBoolArray)
+};
 
 // TODO function setScore() will take the currentRoll and the categoryID from the category the user has just clicked.
 // it will use calculateCategoryScore() which is imported from YahtzeeHelper.js
@@ -57,7 +58,8 @@ const rollDice = () => {
     rollDice={rollDice}/>
     </div>
     <div><DiceDisplay
-    currentRoll={currentRoll}/>
+    currentRoll={currentRoll}
+    toggleLockDice={toggleLockDice}/>
     </div>
     <div><ScoreSheet /></div>
     </>
