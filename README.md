@@ -1,8 +1,16 @@
-How to Access: 
-Server
+### Yahtzee App
+
+This Yahtzee App was built using React.
+
+Technologies used:
+Javascript, React, HTML, CSS, MongoDB
+
+### Running the App
+
+### Server
 Install server dependencies:
-cd server
-npm install
+cd /server
+npm install (npm upgrade if necessary)
 
 Seed the database:
 npm run seeds
@@ -10,12 +18,17 @@ npm run seeds
 Run express:
 npm run server:dev
 
-Client
-cd ../client
-npm install
+Server will be available on http://localhost:9000/api/rolls
+
+### Client
+cd /client
+npm install (npm upgrade if necessary)
 npm start
 
-Brief:
+Client will be available on http://localhost:3000/
+
+### Brief:
+
 MVP
 User should be able to play a functional game of Yahtzee:
 User should be able to roll dice, then select which dice to roll again, up to three times in total.
@@ -27,6 +40,3 @@ Extensions
 Add a second player. Have the option to add player's names, their team's colour...
 Have a statistics page with details of previous games, hi scores etc.
 A whole other card game Pairs/Pelmanism. 
-
-Technologies Used: 
-Javascript, React, HTML, CSS, MongoDB
