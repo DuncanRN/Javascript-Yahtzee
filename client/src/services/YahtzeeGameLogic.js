@@ -3,7 +3,7 @@
 export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
     // TODO write the big if elseif statement here for all 13 categories
 
-    const arrayOfCurrentRoll=[currentRoll[0], currentRoll[1], currentRoll[2], currentRoll[3], currentRoll[4] ]
+    const arrayOfCurrentRoll=[currentRoll[0], currentRoll[1], currentRoll[2], currentRoll[3], currentRoll[4]]
 
     if(categoryIDToSet=="1s")
     {

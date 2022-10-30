@@ -33,7 +33,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
 
 
     return (
-        <div id="score-sheer">
+        <div id="score-sheet">
             <h2>Scoring Categories</h2>
             <ul>
                 <li><button class={buttonclass1} value="1s" onClick={handleScoreClick}>1s - 0</button> {output1}</li>

@@ -1,14 +1,15 @@
 import React from 'react';
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+
 import DiceDisplay from '../components/DiceDisplay';
 import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
+
 import YahtzeeService from '../services/YahtzeeService';
 import {calculateCategoryScore} from '../services/YahtzeeGameLogic';
 
 const MainContainer = () => {
 
-//  setup States here
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
@@ -57,6 +58,8 @@ const setScore = (categoryIDToSet) => {
   // Duncan wants to ask an instructor about this if there is time.
   // We should be able to just call setLockedDice() and that would 
   // set it to the default values - [false, false, false, false, false]... but that crashes the whole thing down
+
+  //Cammy asks is that not what we're doing there on line 56?
 
   const scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll);
 
