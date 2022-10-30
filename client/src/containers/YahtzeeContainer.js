@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
+import DiceDisplay from '../components/DiceDisplay';
 import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
 import YahtzeeService from '../services/YahtzeeService';
@@ -17,7 +18,7 @@ const [rollsThisTurn, setRollsThisTurn] = useState(0)
 useEffect(() => {
   YahtzeeService.getRolls()
   .then(data => setCurrentRoll(data[0].roll))
-}, [])
+}, []);
 
 
 // TODO function rollDice() - will use currentRoll & lockedDice. Those don't need passed in since they are states
@@ -30,8 +31,8 @@ const rollDice = () => {
     if (lockedDice[i] === false) {
         const roll = 1 + Math.floor(Math.random() * 6);
         tempDice[i] = roll;
-    }
-  }
+    };
+  };
 
   const tempArray = [tempDice[0], tempDice[1], tempDice[2], tempDice[3], tempDice[4]];
   setCurrentRoll(tempArray);
@@ -53,7 +54,9 @@ const rollDice = () => {
     <div>This is the Main Container! Renamed to YahtzeeContainer. <br/>I like to hold states.</div>
 
     <div><DiceRoller
-    rollDice={rollDice}
+    rollDice={rollDice}/>
+    </div>
+    <div><DiceDisplay
     currentRoll={currentRoll}/>
     </div>
     <div><ScoreSheet /></div>
