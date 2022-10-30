@@ -4,6 +4,8 @@ import DiceDisplay from '../components/DiceDisplay';
 import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
 import YahtzeeService from '../services/YahtzeeService';
+import {calculateCategoryScore} from '../services/YahtzeeGameLogic';
+
 
 const MainContainer = () => {
 
@@ -48,11 +50,10 @@ const toggleLockDice = (i) => {
   setLockedDice(tempBoolArray)
 };
 
-const setScore = (i) => {
-  // TODO still have to actually set the score here
-
+const setScore = (categoryIDToSet) => {
+  
   console.log("in setScore function");
-  console.log(i);
+  console.log(categoryIDToSet);
   setRollsThisTurn(0);
   setCurrentRoll([null, null, null, null, null]);
   setLockedDice([false, false, false, false, false]); 
@@ -61,6 +62,10 @@ const setScore = (i) => {
   // We should be able to just call setLockedDice() and that would 
   // set it to the default values - [false, false, false, false, false]... but that crashes the whole thing down
 
+  const scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll);
+
+  console.log("the score we get back is");
+  console.log(scoreToSet);
 
 };
 
@@ -70,33 +75,41 @@ const setScore = (i) => {
 // it will set that score into the array 'scores' at the position categoryID
   return (
     <>
-    <div>This is the Main Container! Renamed to YahtzeeContainer. <br/>I like to hold states.
-    rollsThisTurn - {rollsThisTurn}
+      <div className="title">
+        
+      rollsThisTurn - {rollsThisTurn}
 
-    </div>
+      </div>
+          
+      <div className="game-container">
 
-    <div>
-        <DiceRoller
-            rollDice={rollDice}
-            rollsThisTurn={rollsThisTurn}
-        />
-    </div>
-    <div>
-      <ul>
-        <DiceDisplay
-          currentRoll={currentRoll}
-          toggleLockDice={toggleLockDice}
-          lockedDice={lockedDice}
-          />
-      </ul>
-    </div>
-    <div>
-        <ScoreSheet 
-          scores={scores}
-          currentRoll={currentRoll}
-          setScore={setScore}
-          />
-    </div>
+          <div className="dice-and-roller">
+              <div className="dice-display">
+                <ul>
+                  <DiceDisplay
+                    currentRoll={currentRoll}
+                    toggleLockDice={toggleLockDice}
+                    lockedDice={lockedDice}
+                    />
+                </ul>
+              </div>
+
+              <div className="dice-roller-container">
+                  <DiceRoller
+                      rollDice={rollDice}
+                      rollsThisTurn={rollsThisTurn}
+                  />
+              </div>
+          </div>
+          <div className="score-sheet">
+              <ScoreSheet 
+                scores={scores}
+                currentRoll={currentRoll}
+                setScore={setScore}
+                />
+      </div>
+
+        </div>
     </>
   );
   // TODO : DiceRoller in the return needs to take arguements - currentRoll and rollsThisTurn
