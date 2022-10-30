@@ -19,6 +19,34 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
         const score = (arrayOfAllThisNumber.length * thisNumber)
         return score;
     }
+    else if(categoryIDToSet=="3s")
+    {
+        const thisNumber = 3;
+        const arrayOfAllThisNumber = arrayOfCurrentRoll.filter(roll => roll == thisNumber);
+        const score = (arrayOfAllThisNumber.length * thisNumber)
+        return score;
+    }
+    else if(categoryIDToSet=="4s")
+    {
+        const thisNumber = 4;
+        const arrayOfAllThisNumber = arrayOfCurrentRoll.filter(roll => roll == thisNumber);
+        const score = (arrayOfAllThisNumber.length * thisNumber)
+        return score;
+    }
+    else if(categoryIDToSet=="5s")
+    {
+        const thisNumber = 5;
+        const arrayOfAllThisNumber = arrayOfCurrentRoll.filter(roll => roll == thisNumber);
+        const score = (arrayOfAllThisNumber.length * thisNumber)
+        return score;
+    }
+    else if(categoryIDToSet=="6s")
+    {
+        const thisNumber = 6;
+        const arrayOfAllThisNumber = arrayOfCurrentRoll.filter(roll => roll == thisNumber);
+        const score = (arrayOfAllThisNumber.length * thisNumber)
+        return score;
+    }
 }
 
 // TODO another function here to calculate the bonuses

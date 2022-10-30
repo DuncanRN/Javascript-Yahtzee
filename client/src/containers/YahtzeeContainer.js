@@ -6,7 +6,6 @@ import ScoreSheet from '../components/ScoreSheet';
 import YahtzeeService from '../services/YahtzeeService';
 import {calculateCategoryScore} from '../services/YahtzeeGameLogic';
 
-
 const MainContainer = () => {
 
 // TODO setup States here
@@ -38,8 +37,8 @@ const rollDice = () => {
   YahtzeeService.addRoll(currentRoll);
   setRollsThisTurn(rollsThisTurn+1);
 
-  console.log("Dice rolled") // Can be removed!
-  console.log(currentRoll)  //Can be removed!
+  // console.log("Dice rolled") // Can be removed!
+  // console.log(currentRoll)  //Can be removed!
 };
 
 const toggleLockDice = (i) => {
@@ -49,6 +48,34 @@ const toggleLockDice = (i) => {
   tempBoolArray.splice(i, 1, bool)
   setLockedDice(tempBoolArray)
 };
+
+const insertScoreIntoScores = (scoreToSet, categoryIDToSet) =>{
+  // map out scores into a tempScores
+
+
+  if(categoryIDToSet=='1s') { categoryIDToSet='0'; }
+  else if (categoryIDToSet=='2s') { categoryIDToSet='1'; }
+  else if (categoryIDToSet=='3s') { categoryIDToSet='2'; }
+  else if (categoryIDToSet=='4s') { categoryIDToSet='3'; }
+  else if (categoryIDToSet=='5s') { categoryIDToSet='4'; }
+  else if (categoryIDToSet=='6s') { categoryIDToSet='5'; }
+
+  const tempScores = scores.map(score => score);
+  tempScores[categoryIDToSet] = scoreToSet;
+  setScores(tempScores);
+
+  console.log("attempting to put tempScores into the scores state");
+  console.log(tempScores);
+
+  // const indexToUpdate = tempScores.map(score => score._id).indexOf(categoryIDToSet);
+  // console.log("indexToUpdate is ");
+  // console.log(indexToUpdate);
+
+  // tempScores.splice(indexToDel, 1);
+  // setBookings(tempScores);
+  
+
+}
 
 const setScore = (categoryIDToSet) => {
   
@@ -66,6 +93,8 @@ const setScore = (categoryIDToSet) => {
 
   console.log("the score we get back is");
   console.log(scoreToSet);
+
+  insertScoreIntoScores(scoreToSet, categoryIDToSet);
 
 };
 
@@ -107,9 +136,9 @@ const setScore = (categoryIDToSet) => {
                 currentRoll={currentRoll}
                 setScore={setScore}
                 />
-      </div>
+          </div>
 
-        </div>
+      </div>
     </>
   );
   // TODO : DiceRoller in the return needs to take arguements - currentRoll and rollsThisTurn
