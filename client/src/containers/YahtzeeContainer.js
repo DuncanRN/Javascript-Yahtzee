@@ -5,8 +5,6 @@ import DiceRoller from '../components/DiceRoller';
 import ScoreSheet from '../components/ScoreSheet';
 import YahtzeeService from '../services/YahtzeeService';
 
-
-
 const MainContainer = () => {
 
 // TODO setup States here
@@ -14,6 +12,9 @@ const MainContainer = () => {
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
+const [scores, setScores] = useState([null, null, null, null, null,
+                                      null, null, null, null, null,
+                                      null, null, null]) // thirteen nulls
 
 useEffect(() => {
   YahtzeeService.getRolls()
@@ -52,14 +53,22 @@ const toggleLockDice = (i) => {
 // it will set that score into the array 'scores' at the position categoryID
   return (
     <>
-    <div>This is the Main Container! Renamed to YahtzeeContainer. <br/>I like to hold states.</div>
+    <div>This is the Main Container! Renamed to YahtzeeContainer. <br/>I like to hold states.
+    rollsThisTurn - {rollsThisTurn}
+
+    </div>
 
     <div><DiceRoller
     rollDice={rollDice}/>
     </div>
-    <div><DiceDisplay
-    currentRoll={currentRoll}
-    toggleLockDice={toggleLockDice}/>
+    <div>
+      <ul>
+        <DiceDisplay
+          currentRoll={currentRoll}
+          toggleLockDice={toggleLockDice}
+          lockedDice={lockedDice}
+          />
+      </ul>
     </div>
     <div><ScoreSheet /></div>
     </>
