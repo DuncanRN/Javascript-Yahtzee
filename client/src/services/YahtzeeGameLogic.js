@@ -1,5 +1,6 @@
 // Keep as much of the game logic in here as we can.
 
+
 export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
     // TODO write the big if elseif statement here for all 13 categories
 
@@ -47,7 +48,13 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
         const score = (arrayOfAllThisNumber.length * thisNumber)
         return score;
     }
+
 }
 
 // TODO another function here to calculate the bonuses
 // are there two different bonuses? Needs two different functions?
+
+//Only one bonus - it needs to see the values of the upper score though and total them up.
+//If it's >= 63 it should award the bonus of 35. Maybe pass down the state 'scores' and add 
+// up the first six values.
+

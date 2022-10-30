@@ -23,7 +23,7 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
                     End your turn by clicking on a scoresheet category.
                 </p>
             </div>
-        )
+        );
     }
     else
     {
@@ -31,8 +31,8 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
             <div id="dice-roller">
                 <button onClick={handleClick}>Roll Dice!</button>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default DiceRoller;

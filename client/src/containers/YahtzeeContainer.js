@@ -104,27 +104,31 @@ const setScore = (categoryIDToSet) => {
                 <ul>
                   <DiceDisplay
                     currentRoll={currentRoll}
-                    toggleLockDice={toggleLockDice}
                     lockedDice={lockedDice}
-                    />
+
+                    toggleLockDice={toggleLockDice}
+                  />
                 </ul>
               </div>
 
               <div className="dice-roller-container">
                   <DiceRoller
-                      rollDice={rollDice}
                       rollsThisTurn={rollsThisTurn}
+
+                      rollDice={rollDice}
                   />
               </div>
           </div>
+
           <div className="score-sheet">
               <ScoreSheet 
                 scores={scores}
                 currentRoll={currentRoll}
-                setScore={setScore}
-                />
-      </div>
 
+                setScore={setScore}
+              />
+           </div>
+           
         </div>
     </>
   );

@@ -16,7 +16,7 @@ const DiceDisplay = ({currentRoll, toggleLockDice, lockedDice}) => {
                     
                     />
                 </li>
-      )
+      );
     });
 
   return (
@@ -24,7 +24,6 @@ const DiceDisplay = ({currentRoll, toggleLockDice, lockedDice}) => {
         <ul className='dice-display'>
           {diceNumbers}
         </ul>
-    
     </div>
   );
 };
