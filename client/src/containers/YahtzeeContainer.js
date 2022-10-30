@@ -6,11 +6,9 @@ import ScoreSheet from '../components/ScoreSheet';
 import YahtzeeService from '../services/YahtzeeService';
 import {calculateCategoryScore} from '../services/YahtzeeGameLogic';
 
-
 const MainContainer = () => {
 
-// TODO setup States here
-// required states - scores
+//  setup States here
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
@@ -38,8 +36,6 @@ const rollDice = () => {
   YahtzeeService.addRoll(currentRoll);
   setRollsThisTurn(rollsThisTurn+1);
 
-  console.log("Dice rolled") // Can be removed!
-  console.log(currentRoll)  //Can be removed!
 };
 
 const toggleLockDice = (i) => {
@@ -84,6 +80,12 @@ const setScore = (categoryIDToSet) => {
 // TODO function setScore() will take the currentRoll and the categoryID from the category the user has just clicked.
 // it will use calculateCategoryScore() which is imported from YahtzeeHelper.js
 // it will set that score into the array 'scores' at the position categoryID
+
+// TODO test if the game is over
+// if we have scores for every category, the game is over, display final score. 
+// Otherwise do the following return
+
+
   return (
     <>
       <div className="title">

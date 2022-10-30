@@ -16,23 +16,32 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var output5 = "";
     var output6 = "";
 
-    if(tempScores[0]!="null") { output1 = tempScores[0]; }
-    if(tempScores[1]!="null") { output2 = tempScores[1]; }
-    if(tempScores[2]!="null") { output3 = tempScores[2]; }
-    if(tempScores[3]!="null") { output4 = tempScores[3]; }
-    if(tempScores[4]!="null") { output5 = tempScores[4]; }
-    if(tempScores[5]!="null") { output6 = tempScores[5]; }
+    var buttonclass1 = "buttonScores";
+    var buttonclass2 = "buttonScores";
+    var buttonclass3 = "buttonScores";
+    var buttonclass4 = "buttonScores";
+    var buttonclass5 = "buttonScores";
+    var buttonclass6 = "buttonScores";
+
+    if(tempScores[0]!==null) { output1 = tempScores[0]; buttonclass1="buttonScoresDeactivated"; }
+    if(tempScores[1]!==null) { output2 = tempScores[1]; buttonclass2="buttonScoresDeactivated"; }
+    if(tempScores[2]!==null) { output3 = tempScores[2]; buttonclass3="buttonScoresDeactivated"; }
+    if(tempScores[3]!==null) { output4 = tempScores[3]; buttonclass4="buttonScoresDeactivated"; }
+    if(tempScores[4]!==null) { output5 = tempScores[4]; buttonclass5="buttonScoresDeactivated"; }
+    if(tempScores[5]!==null) { output6 = tempScores[5]; buttonclass6="buttonScoresDeactivated"; }
+
+
 
     return (
         <div id="score-sheer">
             <h2>Scoring Categories</h2>
             <ul>
-                <li><button class="buttonScores" value="1s" onClick={handleScoreClick}>1s - 0</button> {output1}</li>
-                <li><button class="buttonScores"  value="2s" onClick={handleScoreClick}>2s - 0</button> {output2}</li>
-                <li><button class="buttonScores"  value="3s" onClick={handleScoreClick}>3s - 0</button> {output3}</li>
-                <li><button class="buttonScores"  value="4s" onClick={handleScoreClick}>4s - 0</button> {output4}</li>
-                <li><button class="buttonScores"  value="5s" onClick={handleScoreClick}>5s - 0</button> {output5}</li>
-                <li><button class="buttonScores"  value="6s" onClick={handleScoreClick}>6s - 0</button> {output6}</li>
+                <li><button class={buttonclass1} value="1s" onClick={handleScoreClick}>1s - 0</button> {output1}</li>
+                <li><button class={buttonclass2}  value="2s" onClick={handleScoreClick}>2s - 0</button> {output2}</li>
+                <li><button class={buttonclass3}  value="3s" onClick={handleScoreClick}>3s - 0</button> {output3}</li>
+                <li><button class={buttonclass4}  value="4s" onClick={handleScoreClick}>4s - 0</button> {output4}</li>
+                <li><button class={buttonclass5}  value="5s" onClick={handleScoreClick}>5s - 0</button> {output5}</li>
+                <li><button class={buttonclass6}  value="6s" onClick={handleScoreClick}>6s - 0</button> {output6}</li>
                 <li>Bonus</li>
                 <li>Upper Total</li>
 
