@@ -67,6 +67,17 @@ const setScore = (categoryIDToSet) => {
   console.log("the score we get back is");
   console.log(scoreToSet);
 
+  if(categoryIDToSet=='1s') { categoryIDToSet='0'; }
+  else if(categoryIDToSet=='2s') { categoryIDToSet='1'; }
+  else if(categoryIDToSet=='3s') { categoryIDToSet='2'; }
+  else if(categoryIDToSet=='4s') { categoryIDToSet='3'; }
+  else if(categoryIDToSet=='5s') { categoryIDToSet='4'; }
+  else if(categoryIDToSet=='6s') { categoryIDToSet='5'; }
+
+  const tempScores = scores.map(score => score);
+  tempScores[categoryIDToSet]=scoreToSet;
+
+  setScores(tempScores);
 };
 
 
