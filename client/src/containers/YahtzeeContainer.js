@@ -48,6 +48,23 @@ const toggleLockDice = (i) => {
   setLockedDice(tempBoolArray)
 };
 
+const setScore = (i) => {
+  // TODO still have to actually set the score here
+
+  console.log("in setScore function");
+  console.log(i);
+  setRollsThisTurn(0);
+  setCurrentRoll([null, null, null, null, null]);
+  setLockedDice([false, false, false, false, false]); 
+
+  // Duncan wants to ask an instructor about this if there is time.
+  // We should be able to just call setLockedDice() and that would 
+  // set it to the default values - [false, false, false, false, false]... but that crashes the whole thing down
+
+
+};
+
+
 // TODO function setScore() will take the currentRoll and the categoryID from the category the user has just clicked.
 // it will use calculateCategoryScore() which is imported from YahtzeeHelper.js
 // it will set that score into the array 'scores' at the position categoryID
@@ -58,8 +75,11 @@ const toggleLockDice = (i) => {
 
     </div>
 
-    <div><DiceRoller
-    rollDice={rollDice}/>
+    <div>
+        <DiceRoller
+            rollDice={rollDice}
+            rollsThisTurn={rollsThisTurn}
+        />
     </div>
     <div>
       <ul>
@@ -70,7 +90,13 @@ const toggleLockDice = (i) => {
           />
       </ul>
     </div>
-    <div><ScoreSheet /></div>
+    <div>
+        <ScoreSheet 
+          scores={scores}
+          currentRoll={currentRoll}
+          setScore={setScore}
+          />
+    </div>
     </>
   );
   // TODO : DiceRoller in the return needs to take arguements - currentRoll and rollsThisTurn
