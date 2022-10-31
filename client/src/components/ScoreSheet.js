@@ -69,8 +69,10 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     if(tempScores[10]!==null) { output11 = tempScores[10]; buttonclass11="buttonScoresDeactivated"; } // Full House
     if(tempScores[11]!==null) { output12 = tempScores[11]; buttonclass12="buttonScoresDeactivated"; } // Small Straight
     if(tempScores[12]!==null) { output13 = tempScores[12]; buttonclass13="buttonScoresDeactivated"; } // Large Straight
-    if(tempScores[13]!==null) { output14 = tempScores[13]; buttonclass14="buttonScoresDeactivated"; } // Yahtzee
-    if(tempScores[14]!==null) { output15 = tempScores[14]; buttonclass15="buttonScoresDeactivated"; } // Chance
+
+    if(tempScores[13]!=null) { output14 = tempScores[13]; buttonclass14="buttonScoresDeactivated"; } // Yahtzee
+    if(tempScores[14]!=null) { output15 = tempScores[14]; buttonclass15="buttonScoresDeactivated"; } // Chance
+    
     if(tempScores[15]!==null) { output16 = tempScores[15]; } // Lower Total
     if(tempScores[16]!==null) { output17 = tempScores[16]; } // Grand Total  
     return (

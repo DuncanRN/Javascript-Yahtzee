@@ -74,84 +74,90 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     }
 
     else if(categoryIDToSet=="Three_of_a_Kind")
-    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+    { 
+        var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
-      }, {});
-      if (numberIncidences[1] >= 3 || numberIncidences[2] >= 3 || numberIncidences[3] >= 3 || numberIncidences[4] >= 3 || numberIncidences[5] >= 3 || numberIncidences[6] >= 3) {
-        return 17;
-      }
-      else {return 0}
+        }, {});
+        if (numberIncidences[1] >= 3 || numberIncidences[2] >= 3 || numberIncidences[3] >= 3 || numberIncidences[4] >= 3 || numberIncidences[5] >= 3 || numberIncidences[6] >= 3) {
+            return 17;
+        }
+        else {return 0}
 
     }
 
     else if(categoryIDToSet=="Four_of_a_Kind")
-    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+    { 
+        var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
-      }, {});
-      if (numberIncidences[1] >= 4 || numberIncidences[2] >= 4 || numberIncidences[3] >= 4 || numberIncidences[4] >= 4 || numberIncidences[5] >= 4 || numberIncidences[6] >= 4) {
-        return 24;
-      }
-      else {return 0}
+        }, {});
+        if (numberIncidences[1] >= 4 || numberIncidences[2] >= 4 || numberIncidences[3] >= 4 || numberIncidences[4] >= 4 || numberIncidences[5] >= 4 || numberIncidences[6] >= 4) {
+            return 24;
+        }
+        else {return 0}
 
     }
 
     else if(categoryIDToSet=="Full_House")
-    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+    { 
+        var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
-      }, {});
-      if (numberIncidences[1] == 3 || numberIncidences[2] == 3 || numberIncidences[3] == 3 || numberIncidences[4] == 3 || numberIncidences[5] == 3 || numberIncidences[6] == 3) {
-        if (numberIncidences[1] == 2 || numberIncidences[2] == 2 || numberIncidences[3] == 2 || numberIncidences[4] == 2 || numberIncidences[5] == 2 || numberIncidences[6] == 2){
-            return 25;
+        }, {});
+        if (numberIncidences[1] == 3 || numberIncidences[2] == 3 || numberIncidences[3] == 3 || numberIncidences[4] == 3 || numberIncidences[5] == 3 || numberIncidences[6] == 3) {
+            if (numberIncidences[1] == 2 || numberIncidences[2] == 2 || numberIncidences[3] == 2 || numberIncidences[4] == 2 || numberIncidences[5] == 2 || numberIncidences[6] == 2){
+                return 25;
+            }
+            return 0;
         }
-        return 0;
-      }
-      else {return 0}
+        else {return 0}
     }
 
     else if(categoryIDToSet=="Small_Straight")
-    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+    { 
+        var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
-      }, {});
-      if (numberIncidences[1] >= 1 && numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1){
-        return 30
-      }
-      if (numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 ){
-        return 30
-      }
-      if (numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 && numberIncidences[6] >=1){
-        return 30
-      }
-      return 0
+        }, {});
+        if (numberIncidences[1] >= 1 && numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1){
+            return 30;
+        }
+        if (numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 ){
+            return 30;
+        }
+        if (numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 && numberIncidences[6] >=1){
+            return 30;
+        }
+        return 0;
     }
 
     else if(categoryIDToSet=="Large_Straight")
-    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+    { 
+        var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
-      }, {});
-      if (numberIncidences[1] >= 1 && numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >=1){
-        return 40
-      }
-      if (numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 && numberIncidences[6] >= 1){
-        return 40
-      }
-      return 0
+        }, {});
+        if (numberIncidences[1] >= 1 && numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >=1){
+            return 40
+        }
+        if (numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 && numberIncidences[6] >= 1){
+            return 40
+        }
+        return 0
     }
 
     else if(categoryIDToSet=="Yahtzee")
-    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+    { 
+        var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
-      }, {});
-      if (numberIncidences[1] == 5 || numberIncidences[2] == 5 || numberIncidences[3] == 5 || numberIncidences[4] == 5 || numberIncidences[5] == 5 || numberIncidences[6] == 5)
-      {
-        return 50
-      }
-      return 0
+        }, {});
+        if (numberIncidences[1] == 5 || numberIncidences[2] == 5 || numberIncidences[3] == 5 || numberIncidences[4] == 5 || numberIncidences[5] == 5 || numberIncidences[6] == 5)
+        {
+            return 50
+        }
+        return 0
     }
 
     else if(categoryIDToSet=="Chance")
@@ -164,35 +170,30 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     {
         const tempScores = scores.map(score => score);
 
-        var notNulledYahtzee = 0;
-        var notNulledChance = 0;
-        if(tempScores[13]==null) { notNulledYahtzee = 0 } else { notNulledYahtzee=tempScores[13] }
-        if( tempScores[14] == null ) { notNulledChance = 0 }  else { notNulledChance= tempScores[14]}
+        var valueOfAllCategories=0;
 
-        // TODO this is a Duncan bodge fix.
-        // perhaps the scores should all be default zero
+        for (let i = 8; i < 15; i++) {
+            if (tempScores[i] != null) {
+                valueOfAllCategories=valueOfAllCategories+ tempScores[i];
+            };
+        };
+        return valueOfAllCategories;
 
 
-        const valueOfLastSevenCategories = tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+notNulledYahtzee+notNulledChance;
+
+        // var notNulledYahtzee = 0;
+        // var notNulledChance = 0;
+        // if(tempScores[13]==null) { notNulledYahtzee = 0 } else { notNulledYahtzee=tempScores[13] }
+        // if( tempScores[14] == null ) { notNulledChance = 0 }  else { notNulledChance= tempScores[14]}
+
+        // // TODO this is a Duncan bodge fix.
+        // // perhaps the scores should all be default zero
+
+
+        // const valueOfLastSevenCategories = tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+notNulledYahtzee+notNulledChance;
         
-        console.log("");
-        console.log("");
-
-        console.log("In LOWER TOTAL");
-        console.log("valueOfLastSevenCategories");
-        console.log(valueOfLastSevenCategories);
-
-        console.log("tempScores[8]")
-        console.log(tempScores[8])
-
-        console.log("tempScores[9]")
-        console.log(tempScores[9])
-
-        console.log("");
-        console.log("");
-        console.log("");
         
-        return valueOfLastSevenCategories;
+        // return valueOfLastSevenCategories;
 
     }
 
@@ -200,17 +201,24 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     {
         const tempScores = scores.map(score => score);
 
-        var notNulledYahtzee = 0;
-        var notNulledChance = 0;
-        if(tempScores[13]==null) { notNulledYahtzee = 0 } else { notNulledYahtzee=tempScores[13] }
-        if( tempScores[14] == null ) { notNulledChance = 0 }  else { notNulledChance= tempScores[14]}
-
-
+        // var notNulledYahtzee = 0;
+        // var notNulledChance = 0;
+        // if(tempScores[13]==null) { notNulledYahtzee = 0 } else { notNulledYahtzee=tempScores[13] }
+        // if( tempScores[14] == null ) { notNulledChance = 0 }  else { notNulledChance= tempScores[14]}
         // maybe here we should discard all the null values.
         // and add together all the non null values.
 
-        const valueOfAllCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+notNulledYahtzee+notNulledChance;
+
+        var valueOfAllCategories=0;
+
+        for (let i = 0; i < 15; i++) {
+            if (tempScores[i] != null) {
+                valueOfAllCategories=valueOfAllCategories+ tempScores[i];
+            };
+        };
         return valueOfAllCategories;
+        // const valueOfAllCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
+        
 
     }
 
