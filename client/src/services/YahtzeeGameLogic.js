@@ -163,14 +163,47 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     else if(categoryIDToSet=="Lower_Total")
     {
         const tempScores = scores.map(score => score);
+
+        if(tempScores[13]==null) { tempScores[13] = 0 }
+        if( tempScores[14] == null ) { tempScores[14] = 0 } 
+        // TODO this is a Duncan bodge fix.
+        // perhaps the scores should all be default zero
+
+
         const valueOfLastSevenCategories = tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
+        
+        console.log("");
+        console.log("");
+
+        console.log("In LOWER TOTAL");
+        console.log("valueOfLastSevenCategories");
+        console.log(valueOfLastSevenCategories);
+
+        console.log("tempScores[8]")
+        console.log(tempScores[8])
+
+        console.log("tempScores[9]")
+        console.log(tempScores[9])
+
+        console.log("");
+        console.log("");
+        console.log("");
+        
         return valueOfLastSevenCategories;
 
     }
 
     else if(categoryIDToSet=="Grand_Total")
     {
+
+        
+
+
         const tempScores = scores.map(score => score);
+
+        if(tempScores[13]==null) { tempScores[13] = 0 }
+        if( tempScores[14] == null ) { tempScores[14] = 0 } 
+
         const valueOfAllCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
         return valueOfAllCategories;
 
