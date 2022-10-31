@@ -49,6 +49,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     }
     else if(categoryIDToSet=="Bonus")
     {
+
         const tempScores = scores.map(score => score);
         const valueOfFirstSixCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5];
         
@@ -72,6 +73,10 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
     }
 
+
+
+        
+    }
 
 
 }
