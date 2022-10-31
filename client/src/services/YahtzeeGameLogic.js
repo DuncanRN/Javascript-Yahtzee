@@ -80,7 +80,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         return obj;
         }, {});
         if (numberIncidences[1] >= 3 || numberIncidences[2] >= 3 || numberIncidences[3] >= 3 || numberIncidences[4] >= 3 || numberIncidences[5] >= 3 || numberIncidences[6] >= 3) {
-            return 17;
+            return(arrayOfCurrentRoll[0] + arrayOfCurrentRoll[1] + arrayOfCurrentRoll[2] + arrayOfCurrentRoll[3] + arrayOfCurrentRoll[4])
         }
         else {return 0}
 
@@ -93,7 +93,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         return obj;
         }, {});
         if (numberIncidences[1] >= 4 || numberIncidences[2] >= 4 || numberIncidences[3] >= 4 || numberIncidences[4] >= 4 || numberIncidences[5] >= 4 || numberIncidences[6] >= 4) {
-            return 24;
+            return(arrayOfCurrentRoll[0] + arrayOfCurrentRoll[1] + arrayOfCurrentRoll[2] + arrayOfCurrentRoll[3] + arrayOfCurrentRoll[4])
         }
         else {return 0}
 
