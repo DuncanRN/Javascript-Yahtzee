@@ -75,8 +75,6 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
 
 
-        
-    }
 
 
 }
