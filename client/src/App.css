@@ -59,8 +59,6 @@ body{
   background:linear-gradient(#b5c5eb, #98a0b1);
 }
 
-
-
 .dice-display{
   display: flex;
   list-style-type: none;
@@ -75,6 +73,7 @@ body{
   background-color: red;
   border:5px solid red;
   border-bottom: 2px solid red;
+  border-right: 4px solid red;
   border-radius: 12px;
 }
 

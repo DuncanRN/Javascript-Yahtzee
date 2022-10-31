@@ -29,7 +29,7 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
     {
         return (
             <div id="dice-roller">
-                <button onClick={handleClick}>Roll Dice!</button>
+                <button className="roll-dice-button" onClick={handleClick}>Roll Dice!</button>
             </div>
         );
     };
