@@ -48,6 +48,10 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
         const score = (arrayOfAllThisNumber.length * thisNumber)
         return score;
     }
+    else if(categoryIDToSet=="Bonus")
+    {
+        
+    }
 
 }
 
