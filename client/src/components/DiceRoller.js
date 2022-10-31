@@ -18,7 +18,8 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
     if(rollsThisTurn==3){
         return(
             <div id="dice-roller">
-                <h3>Turn Complete.</h3> 
+                <h3>Turn Complete.</h3>  
+                
                 <p>
                     End your turn by clicking on a scoresheet category.
                 </p>

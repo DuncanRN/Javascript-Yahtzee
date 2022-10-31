@@ -38,8 +38,6 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
 
     if(tempScores[7]!==null) { output8 = tempScores[7]; buttonclass8="buttonScoresDeactivated"; } // Upper Total
 
-
-
     return (
         <div id="score-sheet">
             <h2>Scoring Categories</h2>

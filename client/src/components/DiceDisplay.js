@@ -3,7 +3,7 @@ import SingleDie from './SingleDie';
 
 const DiceDisplay = ({currentRoll, toggleLockDice, lockedDice}) => {
 
-    const diceNumbers = currentRoll.map((dieNumber, index) => {
+    const diceNumbers = currentRoll.map((dieNumber, index) => { 
       return (
                 <li>
                   <SingleDie
