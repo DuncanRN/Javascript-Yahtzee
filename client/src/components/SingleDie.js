@@ -21,7 +21,7 @@ const SingleDice = ({dieNumber, toggleLockDice, index, isThisDiceLocked}) => {
 
   return (
     
-    <div onClick={handleClick}  class={lockedOrUnlockedClass}> 
+    <div onClick={handleClick}  className={lockedOrUnlockedClass}> 
     <img width="40" height="40" src={require(`${thisDiceImage}`)} /> 
     </div>
   );
