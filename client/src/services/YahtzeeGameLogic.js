@@ -85,6 +85,74 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
     }
 
+    else if(categoryIDToSet=="Four_of_a_Kind")
+    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+        obj[b] = ++obj[b] || 1;
+        return obj;
+      }, {});
+      if (numberIncidences[1] >= 4 || numberIncidences[2] >= 4 || numberIncidences[3] >= 4 || numberIncidences[4] >= 4 || numberIncidences[5] >= 4 || numberIncidences[6] >= 4) {
+        return 24;
+      }
+      else {return 0}
+
+    }
+
+    else if(categoryIDToSet=="Full_House")
+    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+        obj[b] = ++obj[b] || 1;
+        return obj;
+      }, {});
+      if (numberIncidences[1] == 3 || numberIncidences[2] == 3 || numberIncidences[3] == 3 || numberIncidences[4] == 3 || numberIncidences[5] == 3 || numberIncidences[6] == 3) {
+        if (numberIncidences[1] == 2 || numberIncidences[2] == 2 || numberIncidences[3] == 2 || numberIncidences[4] == 2 || numberIncidences[5] == 2 || numberIncidences[6] == 2){
+            return 25;
+        }
+        return 0;
+      }
+      else {return 0}
+    }
+
+    else if(categoryIDToSet=="Small_Straight")
+    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+        obj[b] = ++obj[b] || 1;
+        return obj;
+      }, {});
+      if (numberIncidences[1] >= 1 && numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1){
+        return 30
+      }
+      if (numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 ){
+        return 30
+      }
+      if (numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 && numberIncidences[6] >=1){
+        return 30
+      }
+      return 0
+    }
+
+    else if(categoryIDToSet=="Large_Straight")
+    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+        obj[b] = ++obj[b] || 1;
+        return obj;
+      }, {});
+      if (numberIncidences[1] >= 1 && numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >=1){
+        return 40
+      }
+      if (numberIncidences[2] >=1 && numberIncidences[3] >=1 && numberIncidences[4] >=1 && numberIncidences[5] >= 1 && numberIncidences[6] >= 1){
+        return 40
+      }
+      return 0
+    }
+
+    else if(categoryIDToSet=="Yahtzee")
+    { var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
+        obj[b] = ++obj[b] || 1;
+        return obj;
+      }, {});
+      if (numberIncidences[1] == 5 || numberIncidences[2] == 5 || numberIncidences[3] == 5 || numberIncidences[4] == 5 || numberIncidences[5] == 5 || numberIncidences[6] == 5)
+      {
+        return 50
+      }
+      return 0
+    }
 
 
 

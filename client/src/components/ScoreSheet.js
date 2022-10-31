@@ -18,6 +18,11 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var output7 = "";
     var output8 = "";
     var output9 = "";
+    var output10 = "";
+    var output11 = "";
+    var output12 = "";
+    var output13 = "";
+    var output14 = "";
 
     var buttonclass1 = "buttonScores";
     var buttonclass2 = "buttonScores";
@@ -28,6 +33,11 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var buttonclass7 = "buttonScores";
     var buttonclass8 = "buttonScores";
     var buttonclass9 = "buttonScores";
+    var buttonclass10 = "buttonScores";
+    var buttonclass11 = "buttonScores";
+    var buttonclass12 = "buttonScores";
+    var buttonclass13 = "buttonScores";
+    var buttonclass14 = "buttonScores";
     
 
     if(tempScores[0]!==null) { output1 = tempScores[0]; buttonclass1="buttonScoresDeactivated"; } // Ones
@@ -46,7 +56,11 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
 
     if(tempScores[7]!==null) { output8 = tempScores[7]; buttonclass8="buttonScoresDeactivated"; } // Upper Total
     if(tempScores[8]!==null) { output9 = tempScores[8]; buttonclass9="buttonScoresDeactivated"; } // Three of a Kind
-
+    if(tempScores[9]!==null) { output10 = tempScores[9]; buttonclass10="buttonScoresDeactivated"; } // Four of a Kind
+    if(tempScores[10]!==null) { output11 = tempScores[10]; buttonclass11="buttonScoresDeactivated"; } // Full House
+    if(tempScores[11]!==null) { output12 = tempScores[11]; buttonclass12="buttonScoresDeactivated"; } // Small Straight
+    if(tempScores[12]!==null) { output13 = tempScores[12]; buttonclass13="buttonScoresDeactivated"; } // Large Straight
+    if(tempScores[13]!==null) { output14 = tempScores[13]; buttonclass14="buttonScoresDeactivated"; } // Yahtzee
     return (
         <div id="score-sheet">
             <h2>Scoring Categories</h2>
@@ -67,11 +81,11 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
                 <br />
                 <li><button className={buttonclass9} value="Three_of_a_Kind" onClick={handleScoreClick}>Three of a Kind: </button> {output9}</li>
             
-                <li>Four of a Kind</li>
-                <li>Full House</li>
-                <li>Small Straight</li>
-                <li>Large Straight</li>
-                <li>Yahtzee</li>
+                <li><button className={buttonclass10} value="Four_of_a_Kind" onClick={handleScoreClick}>Four of a Kind: </button> {output10}</li>
+                <li><button className={buttonclass11} value="Full_House" onClick={handleScoreClick}>Full House: </button> {output11}</li>
+                <li><button className={buttonclass12} value="Small_Straight" onClick={handleScoreClick}>Small Straight: </button> {output12}</li>
+                <li><button className={buttonclass13} value="Large_Straight" onClick={handleScoreClick}>Large Straight: </button> {output13}</li>
+                <li><button className={buttonclass14} value="Yahtzee" onClick={handleScoreClick}>Yahtzee: </button> {output14}</li>
                 <li>Chance</li>
                 <li>Lower Total</li>
                 <li>Grand Total</li>

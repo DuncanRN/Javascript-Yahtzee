@@ -79,6 +79,16 @@ const setScore = (categoryIDToSet) => {
 
   else if(categoryIDToSet=='Three_of_a_Kind') { categoryIDToSet='8'; }
 
+  else if(categoryIDToSet=='Four_of_a_Kind') { categoryIDToSet='9'; }
+
+  else if(categoryIDToSet=='Full_House') { categoryIDToSet='10'; }
+
+  else if(categoryIDToSet=='Small_Straight') { categoryIDToSet='11'; }
+
+  else if(categoryIDToSet=='Large_Straight') { categoryIDToSet='12'; }
+
+  else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
+
   const tempScores = scores.map(score => score);
   tempScores[categoryIDToSet]=scoreToSet;
 
