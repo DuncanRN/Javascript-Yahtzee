@@ -61,7 +61,7 @@ const setScore = (categoryIDToSet) => {
 
   //Cammy asks is that not what we're doing there on line 56?
 
-  const scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll);
+  const scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores);
 
   console.log("the score we get back is");
   console.log(scoreToSet);
@@ -74,6 +74,10 @@ const setScore = (categoryIDToSet) => {
   // else if(categoryIDToSet=='6s') { categoryIDToSet='5'; } Duncan took this out
 
   if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
+
+  else if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
+
+  else if(categoryIDToSet=='Upper_Total') { categoryIDToSet='7'; }
 
   const tempScores = scores.map(score => score);
   tempScores[categoryIDToSet]=scoreToSet;
