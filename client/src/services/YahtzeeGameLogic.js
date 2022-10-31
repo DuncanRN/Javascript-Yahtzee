@@ -160,6 +160,22 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         return total;
     }
 
+    else if(categoryIDToSet=="Lower_Total")
+    {
+        const tempScores = scores.map(score => score);
+        const valueOfLastSevenCategories = tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
+        return valueOfLastSevenCategories;
+
+    }
+
+    else if(categoryIDToSet=="Grand_Total")
+    {
+        const tempScores = scores.map(score => score);
+        const valueOfAllCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
+        return valueOfAllCategories;
+
+    }
+
 
 
 

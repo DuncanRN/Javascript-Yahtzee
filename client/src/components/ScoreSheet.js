@@ -24,6 +24,10 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var output13 = "";
     var output14 = "";
     var output15 = "";
+    var output16 = "";
+    var output17 = "";
+
+    
 
     var buttonclass1 = "buttonScores";
     var buttonclass2 = "buttonScores";
@@ -32,7 +36,6 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var buttonclass5 = "buttonScores";
     var buttonclass6 = "buttonScores";
     var buttonclass7 = "buttonScores";
-    var buttonclass8 = "buttonScores";
     var buttonclass9 = "buttonScores";
     var buttonclass10 = "buttonScores";
     var buttonclass11 = "buttonScores";
@@ -56,14 +59,16 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
 
     if(tempScores[6]!==null) { output7 = tempScores[6]; buttonclass7="buttonScoresDeactivated"; } // Bonus
 
-    if(tempScores[7]!==null) { output8 = tempScores[7]; buttonclass8="buttonScoresDeactivated"; } // Upper Total
+    if(tempScores[7]!==null) { output8 = tempScores[7];} // Upper Total
     if(tempScores[8]!==null) { output9 = tempScores[8]; buttonclass9="buttonScoresDeactivated"; } // Three of a Kind
     if(tempScores[9]!==null) { output10 = tempScores[9]; buttonclass10="buttonScoresDeactivated"; } // Four of a Kind
     if(tempScores[10]!==null) { output11 = tempScores[10]; buttonclass11="buttonScoresDeactivated"; } // Full House
     if(tempScores[11]!==null) { output12 = tempScores[11]; buttonclass12="buttonScoresDeactivated"; } // Small Straight
     if(tempScores[12]!==null) { output13 = tempScores[12]; buttonclass13="buttonScoresDeactivated"; } // Large Straight
     if(tempScores[13]!==null) { output14 = tempScores[13]; buttonclass14="buttonScoresDeactivated"; } // Yahtzee
-    if(tempScores[14]!==null) { output15 = tempScores[14]; buttonclass15="buttonScoresDeactivated"; } // Chance 
+    if(tempScores[14]!==null) { output15 = tempScores[14]; buttonclass15="buttonScoresDeactivated"; } // Chance
+    if(tempScores[15]!==null) { output16 = tempScores[15]; } // Lower Total
+    if(tempScores[16]!==null) { output17 = tempScores[16]; } // Grand Total  
     return (
         <div id="score-sheet">
             <h2>Scoring Categories</h2>
@@ -75,8 +80,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
                 <li><button className={buttonclass5}  value="4" onClick={handleScoreClick}>Fives: </button> {output5}</li>
                 <li><button className={buttonclass6}  value="5" onClick={handleScoreClick}>Sixes: </button> {output6}</li>
                 <li><button className={buttonclass7} value="Bonus" onClick={handleScoreClick}>Bonus: </button> {output7}</li>
-                
-                <li><button className={buttonclass8} value="Upper_Total" onClick={handleScoreClick}>Upper Total: </button> {output8}</li>
+                <li>Upper Total: {output8}</li>
                 
                 
 
@@ -90,8 +94,8 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
                 <li><button className={buttonclass13} value="Large_Straight" onClick={handleScoreClick}>Large Straight: </button> {output13}</li>
                 <li><button className={buttonclass14} value="Yahtzee" onClick={handleScoreClick}>Yahtzee: </button> {output14}</li>
                 <li><button className={buttonclass15} value="Chance" onClick={handleScoreClick}>Chance: </button> {output15}</li>
-                <li>Lower Total</li>
-                <li>Grand Total</li>
+                <li>Lower Total: {output16}</li>
+                <li>Grand Total: {output17}</li>
 
             </ul>
         </div>

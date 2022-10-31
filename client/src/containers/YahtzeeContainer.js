@@ -22,6 +22,10 @@ useEffect(() => {
   .then(data => setCurrentRoll(data[0].roll))
 }, []);
 
+useEffect(() => {
+  calculateTotals()
+}, [currentRoll]);
+
 const rollDice = () => {
   const tempDice = currentRoll;
   for (let i = 0; i < lockedDice.length; i++) {
@@ -46,6 +50,22 @@ const toggleLockDice = (i) => {
   tempBoolArray.splice(i, 1, bool)
   setLockedDice(tempBoolArray)
 };
+
+const calculateTotals = () => {
+  // set scores for Upper Total, Lower Total, and Grand total
+  const tempScores = scores.map(score => score);
+
+  var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, scores);
+  tempScores[7]=scoreToSet;
+
+  var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, scores);
+  tempScores[15]=scoreToSet;
+
+  var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, scores);
+  tempScores[16]=scoreToSet;
+
+  setScores(tempScores);
+}
 
 const setScore = (categoryIDToSet) => {
   
@@ -95,6 +115,8 @@ const setScore = (categoryIDToSet) => {
   tempScores[categoryIDToSet]=scoreToSet;
 
   setScores(tempScores);
+  // need to wait here?
+  // calculateTotals();
 };
 
 
