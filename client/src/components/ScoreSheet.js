@@ -23,6 +23,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var output12 = "";
     var output13 = "";
     var output14 = "";
+    var output15 = "";
 
     var buttonclass1 = "buttonScores";
     var buttonclass2 = "buttonScores";
@@ -38,6 +39,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var buttonclass12 = "buttonScores";
     var buttonclass13 = "buttonScores";
     var buttonclass14 = "buttonScores";
+    var buttonclass15 = "buttonScores";
     
 
     if(tempScores[0]!==null) { output1 = tempScores[0]; buttonclass1="buttonScoresDeactivated"; } // Ones
@@ -61,6 +63,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     if(tempScores[11]!==null) { output12 = tempScores[11]; buttonclass12="buttonScoresDeactivated"; } // Small Straight
     if(tempScores[12]!==null) { output13 = tempScores[12]; buttonclass13="buttonScoresDeactivated"; } // Large Straight
     if(tempScores[13]!==null) { output14 = tempScores[13]; buttonclass14="buttonScoresDeactivated"; } // Yahtzee
+    if(tempScores[14]!==null) { output15 = tempScores[14]; buttonclass15="buttonScoresDeactivated"; } // Chance 
     return (
         <div id="score-sheet">
             <h2>Scoring Categories</h2>
@@ -86,7 +89,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
                 <li><button className={buttonclass12} value="Small_Straight" onClick={handleScoreClick}>Small Straight: </button> {output12}</li>
                 <li><button className={buttonclass13} value="Large_Straight" onClick={handleScoreClick}>Large Straight: </button> {output13}</li>
                 <li><button className={buttonclass14} value="Yahtzee" onClick={handleScoreClick}>Yahtzee: </button> {output14}</li>
-                <li>Chance</li>
+                <li><button className={buttonclass15} value="Chance" onClick={handleScoreClick}>Chance: </button> {output15}</li>
                 <li>Lower Total</li>
                 <li>Grand Total</li>
 

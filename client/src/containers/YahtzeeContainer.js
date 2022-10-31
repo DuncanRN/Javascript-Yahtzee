@@ -89,6 +89,8 @@ const setScore = (categoryIDToSet) => {
 
   else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
 
+  else if(categoryIDToSet=='Chance') { categoryIDToSet='14'; }
+
   const tempScores = scores.map(score => score);
   tempScores[categoryIDToSet]=scoreToSet;
 

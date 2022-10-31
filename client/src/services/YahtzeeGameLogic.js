@@ -154,6 +154,12 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
       return 0
     }
 
+    else if(categoryIDToSet=="Chance")
+    {
+        const total = arrayOfCurrentRoll[0] + arrayOfCurrentRoll[1] + arrayOfCurrentRoll[2] + arrayOfCurrentRoll[3] + arrayOfCurrentRoll[4]
+        return total;
+    }
+
 
 
 
