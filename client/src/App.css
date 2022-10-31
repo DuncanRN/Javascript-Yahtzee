@@ -2,6 +2,7 @@
   background-color: rgba(70, 70, 70, 0.9); 
    /* Sets to 50% transparent */
   color: #fff;
+  border-radius: 25px;
 }
 
 .main-container > h1 {
@@ -130,6 +131,10 @@ ul {
   display: flex;
 }
 
-.dice-roller-container{
-  
+/* .dice-roller-container{
+  justify-content: middle;
 }
+
+.dice-roller{
+  justify-content: center;
+} */
