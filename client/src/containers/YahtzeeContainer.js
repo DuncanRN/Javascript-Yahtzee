@@ -131,51 +131,50 @@ const setScore = (categoryIDToSet) => {
 
   return (
     <>
-      <div className="title">
-        
-      rollsThisTurn - {rollsThisTurn}
-
-      </div>
+      <div className="whole-yahtzee-game">
+        <div className="title">
           
-      <div className="game-container">
+        </div>
+            
+        <div className="game-container">
 
-          <div className="dice-and-roller">
-              <div className="dice-display">
-                <ul>
-                  <DiceDisplay
-                    currentRoll={currentRoll}
-                    lockedDice={lockedDice}
+            <div className="dice-and-roller">
+                <div className="dice-display">
+                  <ul>
+                    <DiceDisplay
+                      currentRoll={currentRoll}
+                      lockedDice={lockedDice}
 
-                    toggleLockDice={toggleLockDice}
-                  />
-                </ul>
-              </div>
+                      toggleLockDice={toggleLockDice}
+                    />
+                  </ul>
+                </div>
 
-              <div className="dice-roller-container">
-                  <DiceRoller
-                      rollsThisTurn={rollsThisTurn}
+                <div className="dice-roller-container">
+                    <DiceRoller
+                        rollsThisTurn={rollsThisTurn}
 
-                      rollDice={rollDice}
-                  />
-              </div>
+                        rollDice={rollDice}
+                    />
+
+                    rollsThisTurn - {rollsThisTurn}
+
+                </div>
+            </div>
+
+            <div className="score-sheet">
+                <ScoreSheet 
+                  scores={scores}
+                  currentRoll={currentRoll}
+
+                  setScore={setScore}
+                />
+            </div>
+
           </div>
-
-          <div className="score-sheet">
-              <ScoreSheet 
-                scores={scores}
-                currentRoll={currentRoll}
-
-                setScore={setScore}
-              />
-           </div>
-
         </div>
     </>
   );
-  // TODO : DiceRoller in the return needs to take arguements - currentRoll and rollsThisTurn
-
-  // TODO : ScoreSheet in the return needs to take arguements - scores and currentRoll
-
 
 };
 

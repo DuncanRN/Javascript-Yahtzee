@@ -38,5 +38,6 @@ The program should automatically calculate the users score.
 
 Extensions
 Add a second player. Have the option to add player's names, their team's colour...
+Have up to 6 players, with a scorecard matching the rulebook of Yahtzee.
 Have a statistics page with details of previous games, hi scores etc.
 A whole other card game Pairs/Pelmanism. 
