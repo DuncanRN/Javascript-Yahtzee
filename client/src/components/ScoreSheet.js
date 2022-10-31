@@ -16,6 +16,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var output5 = "";
     var output6 = "";
     var output7 = "";
+    var output8 = "";
 
     var buttonclass1 = "buttonScores";
     var buttonclass2 = "buttonScores";
@@ -24,14 +25,18 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var buttonclass5 = "buttonScores";
     var buttonclass6 = "buttonScores";
     var buttonclass7 = "buttonScores";
+    var buttonclass8 = "buttonScores";
 
-    if(tempScores[0]!==null) { output1 = tempScores[0]; buttonclass1="buttonScoresDeactivated"; }
+    if(tempScores[0]!==null) { output1 = tempScores[0]; buttonclass1="buttonScoresDeactivated"; } // Ones
     if(tempScores[1]!==null) { output2 = tempScores[1]; buttonclass2="buttonScoresDeactivated"; }
     if(tempScores[2]!==null) { output3 = tempScores[2]; buttonclass3="buttonScoresDeactivated"; }
     if(tempScores[3]!==null) { output4 = tempScores[3]; buttonclass4="buttonScoresDeactivated"; }
     if(tempScores[4]!==null) { output5 = tempScores[4]; buttonclass5="buttonScoresDeactivated"; }
-    if(tempScores[5]!==null) { output6 = tempScores[5]; buttonclass6="buttonScoresDeactivated"; }
-    if(tempScores[6]!==null) { output7 = tempScores[6]; buttonclass7="buttonScoresDeactivated"; }
+    if(tempScores[5]!==null) { output6 = tempScores[5]; buttonclass6="buttonScoresDeactivated"; } // Sixes
+
+    if(tempScores[6]!==null) { output7 = tempScores[6]; buttonclass7="buttonScoresDeactivated"; } // Bonus
+
+    if(tempScores[7]!==null) { output8 = tempScores[7]; buttonclass8="buttonScoresDeactivated"; } // Upper Total
 
 
 
@@ -46,7 +51,10 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
                 <li><button className={buttonclass5}  value="5s" onClick={handleScoreClick}>Fives: </button> {output5}</li>
                 <li><button className={buttonclass6}  value="6s" onClick={handleScoreClick}>Sixes: </button> {output6}</li>
                 <li><button className={buttonclass7} value="Bonus" onClick={handleScoreClick}>Bonus: </button> {output7}</li>
-                <li>Upper Total</li>
+                
+                <li><button className={buttonclass8} value="Upper_Total" onClick={handleScoreClick}>Upper Total: </button> {output8}</li>
+                
+                
 
 
                 <br />

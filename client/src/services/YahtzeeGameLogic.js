@@ -1,7 +1,6 @@
 // Keep as much of the game logic in here as we can.
 
-
-export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
+export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => {
     // TODO write the big if elseif statement here for all 13 categories
 
     const arrayOfCurrentRoll=[currentRoll[0], currentRoll[1], currentRoll[2], currentRoll[3], currentRoll[4]]
@@ -48,6 +47,32 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll) => {
         const score = (arrayOfAllThisNumber.length * thisNumber)
         return score;
     }
+    else if(categoryIDToSet=="Bonus")
+    {
+        const tempScores = scores.map(score => score);
+        const valueOfFirstSixCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5];
+        
+        if(valueOfFirstSixCategories>63){
+            console.log("in Bonus if successful");
+            console.log(valueOfFirstSixCategories);
+            return 35;
+        }
+        else{
+            console.log("in Bonus if failed");
+            console.log(valueOfFirstSixCategories);
+            return 0;
+        }
+
+    }
+    else if(categoryIDToSet=="Upper_Total")
+    {
+        const tempScores = scores.map(score => score);
+        const valueOfFirstSevenCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6];
+        return valueOfFirstSevenCategories;
+
+    }
+
+
 
 }
 
