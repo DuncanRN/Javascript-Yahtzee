@@ -17,6 +17,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var output6 = "";
     var output7 = "";
     var output8 = "";
+    var output9 = "";
 
     var buttonclass1 = "buttonScores";
     var buttonclass2 = "buttonScores";
@@ -26,6 +27,8 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     var buttonclass6 = "buttonScores";
     var buttonclass7 = "buttonScores";
     var buttonclass8 = "buttonScores";
+    var buttonclass9 = "buttonScores";
+    
 
     if(tempScores[0]!==null) { output1 = tempScores[0]; buttonclass1="buttonScoresDeactivated"; } // Ones
     if(tempScores[1]!==null) { output2 = tempScores[1]; buttonclass2="buttonScoresDeactivated"; }
@@ -42,6 +45,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     if(tempScores[6]!==null) { output7 = tempScores[6]; buttonclass7="buttonScoresDeactivated"; } // Bonus
 
     if(tempScores[7]!==null) { output8 = tempScores[7]; buttonclass8="buttonScoresDeactivated"; } // Upper Total
+    if(tempScores[8]!==null) { output9 = tempScores[8]; buttonclass9="buttonScoresDeactivated"; } // Three of a Kind
 
     return (
         <div id="score-sheet">
@@ -61,7 +65,8 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
 
 
                 <br />
-                <li>Three of a Kind</li>
+                <li><button className={buttonclass9} value="Three_of_a_Kind" onClick={handleScoreClick}>Three of a Kind: </button> {output9}</li>
+            
                 <li>Four of a Kind</li>
                 <li>Full House</li>
                 <li>Small Straight</li>

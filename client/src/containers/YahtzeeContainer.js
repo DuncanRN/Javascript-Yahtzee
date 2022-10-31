@@ -75,9 +75,9 @@ const setScore = (categoryIDToSet) => {
 
   if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
 
-  else if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
-
   else if(categoryIDToSet=='Upper_Total') { categoryIDToSet='7'; }
+
+  else if(categoryIDToSet=='Three_of_a_Kind') { categoryIDToSet='8'; }
 
   const tempScores = scores.map(score => score);
   tempScores[categoryIDToSet]=scoreToSet;
