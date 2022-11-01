@@ -92,7 +92,13 @@ body{
 .dice-display{
   display: flex;
   list-style-type: none;
-  justify-content: center; 
+  justify-content: center;
+}
+
+.main-dice-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dice-display li{
@@ -169,6 +175,7 @@ body{
 
 ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 
 .score-sheet {
@@ -188,4 +195,9 @@ ul {
 td {
   border: 1px solid black;
   width: 5em;
+  text-align: center;
+}
+
+th {
+  padding: 0.55em;
 }
