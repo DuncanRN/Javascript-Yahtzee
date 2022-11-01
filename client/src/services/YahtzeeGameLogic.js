@@ -54,13 +54,13 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         const valueOfFirstSixCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5];
         
         if(valueOfFirstSixCategories>63){
-            console.log("in Bonus if successful");
-            console.log(valueOfFirstSixCategories);
+            // console.log("in Bonus if successful");
+            // console.log(valueOfFirstSixCategories);
             return 35;
         }
         else{
-            console.log("in Bonus if failed");
-            console.log(valueOfFirstSixCategories);
+            // console.log("in Bonus if failed");
+            // console.log(valueOfFirstSixCategories);
             return 0;
         }
 
@@ -185,18 +185,10 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     {
         const tempScores = scores.map(score => score);
 
-
-
         const total = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
         return total;
 
-        // const valueOfAllCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
-        
-
     }
-
-
-
 
 }
 

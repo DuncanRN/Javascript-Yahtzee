@@ -30,9 +30,9 @@ useEffect(() => {
   .then(data => setCurrentRoll(data[0].roll))
 }, []);
 
-useEffect(() => {
-  calculateTotals()
-}, [currentRoll]);
+// useEffect(() => {
+//   calculateTotals()
+// }, [currentRoll]);
 
 const rollDice = () => {
   const tempDice = currentRoll;
@@ -59,13 +59,19 @@ const toggleLockDice = (i) => {
   setLockedDice(tempBoolArray)
 };
 
-const calculateTotals = () => {
+const calculateTotals = (tempScores) => {
   // set scores for Upper Total, Lower Total, and Grand total
   
-  var tempScores = []
+  // var tempScores = []
+
+  console.log("IN calculateTotals")
+  console.log("currentPlayer");
+
+  console.log(currentPlayer);
+
 
   if (currentPlayer=="Player1"){
-    tempScores = scores1.map(score => score);
+    // tempScores = scores1.map(score => score);
     var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
@@ -77,7 +83,7 @@ const calculateTotals = () => {
   }
 
   else if(currentPlayer=="Player2"){
-    tempScores = scores2.map(score => score);
+    // tempScores = scores2.map(score => score);
     var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
@@ -88,7 +94,7 @@ const calculateTotals = () => {
   }
 
   else if(currentPlayer=="Player3"){
-    tempScores = scores3.map(score => score);
+    // tempScores = scores3.map(score => score);
     var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
@@ -97,6 +103,9 @@ const calculateTotals = () => {
     tempScores[16]=scoreToSet;
     setScores3(tempScores);
 
+    console.log("here is player3's tempScores")
+    console.table(tempScores);
+
   }
 }
 
@@ -104,11 +113,11 @@ const setNextPlayer = () => {
   const playerPosition=players.indexOf(currentPlayer)
   const numberOfPlayers=players.length
 
-  console.log("playerposition")
-  console.log(playerPosition);
+  // console.log("playerposition")
+  // console.log(playerPosition);
 
-  console.log("num of players")
-  console.log(numberOfPlayers);
+  // console.log("num of players")
+  // console.log(numberOfPlayers);
 
 
 
@@ -124,9 +133,12 @@ const setScore = (categoryIDToSet) => {
   
   console.log("in setScore function");
   console.log(categoryIDToSet);
+  
+
   setRollsThisTurn(0);
   setCurrentRoll([null, null, null, null, null]);
   setLockedDice([false, false, false, false, false]); 
+  
 
   // Duncan wants to ask an instructor about this if there is time.
   // We should be able to just call setLockedDice() and that would 
@@ -149,8 +161,8 @@ const setScore = (categoryIDToSet) => {
     scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores3);
   }
 
-  console.log("the score we get back is");
-  console.log(scoreToSet);
+  // console.log("the score we get back is");
+  // console.log(scoreToSet);
 
 
 
@@ -179,12 +191,20 @@ const setScore = (categoryIDToSet) => {
 
   else if(categoryIDToSet=='Chance') { categoryIDToSet='14'; }
 
+
+  /// HERE we have set the scores now we should calculate the totals before we change player 
+  
+
+
   if (currentPlayer=="Player1"){
 
     const tempScores = scores1.map(score => score);
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores1(tempScores);
+
+    calculateTotals(tempScores);
+
     setNextPlayer()
   }
 
@@ -193,6 +213,9 @@ const setScore = (categoryIDToSet) => {
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores2(tempScores);
+
+    calculateTotals(tempScores);
+
     setNextPlayer()
   }
 
@@ -201,6 +224,9 @@ const setScore = (categoryIDToSet) => {
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores3(tempScores);
+
+    calculateTotals(tempScores);
+
     setNextPlayer()
   }
 };
