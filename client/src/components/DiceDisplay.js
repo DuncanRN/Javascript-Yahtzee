@@ -20,8 +20,8 @@ const DiceDisplay = ({currentRoll, toggleLockDice, lockedDice}) => {
     });
 
   return (
-    <div>
-        <ul className='dice-display'>
+    <div className='main-dice-display'>
+        <ul className='dice-display'> 
           {diceNumbers}
         </ul>
     </div>

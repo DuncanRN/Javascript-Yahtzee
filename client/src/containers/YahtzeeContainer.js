@@ -140,7 +140,7 @@ const setScore = (categoryIDToSet) => {
 
             <div className="dice-and-roller">
                 <div className="dice-display">
-                  <ul>
+                  <ul className='dice-container-display'>
                     <DiceDisplay
                       currentRoll={currentRoll}
                       lockedDice={lockedDice}
@@ -157,7 +157,7 @@ const setScore = (categoryIDToSet) => {
                         rollDice={rollDice}
                     />
 
-                    rollsThisTurn - {rollsThisTurn}
+                    <h2 className='rolls-this-turn'>Rolls this turn: {rollsThisTurn}</h2>
 
                 </div>
             </div>

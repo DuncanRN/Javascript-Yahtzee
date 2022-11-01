@@ -15,22 +15,23 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
         rollDice();
     };
 
-    if(rollsThisTurn==100){
+    if(rollsThisTurn==1){
         return(
-            <div id="dice-roller">
-                <h3>Turn Complete.</h3>  
+            <div className="dice-roller">
+                <h2 className='turn-heading'>Turn Complete.</h2>  
                 
-                <p>
+                <h2 className='end-turn-statement'>
                     End your turn by clicking on a scoresheet category.
-                </p>
+                </h2>
             </div>
         );
     }
     else
     {
         return (
-            <div id="dice-roller">
-                <button className="roll-dice-button" onClick={handleClick}>Roll Dice!</button>
+            <div className='roll-dice-section'>
+                <button className="roll-dice-button" onClick={handleClick}>Roll!</button>
+                <h2 className='roll-the-dice-statement'>Roll the dice to start the game!</h2>
             </div>
         );
     };

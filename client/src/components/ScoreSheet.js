@@ -80,6 +80,8 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
             
 
             <div className="upper-scores">
+                <h2 classname='score-title'>Score Sheet</h2>
+                <h2>UPPER SECTION</h2>
                 <ul>
                     <li><button className={buttonclass1} value="0" onClick={handleScoreClick} >Ones: {output1}</button></li>
                     <li><button className={buttonclass2}  value="1" onClick={handleScoreClick}>Twos: {output2}</button> </li>
@@ -94,6 +96,7 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
             </div>
 
             <div className="lower-scores">
+                <h2>LOWER SECTION</h2>
                 <ul>
                     <li><button className={buttonclass9} value="Three_of_a_Kind" onClick={handleScoreClick}>Three of a Kind: {output9}</button> </li>
                 
