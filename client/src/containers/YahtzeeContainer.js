@@ -146,6 +146,7 @@ const setScore = (categoryIDToSet) => {
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores1(tempScores);
+    setCurrentPlayer("Player2")
   }
 
   else if(currentPlayer=="Player2"){
@@ -153,6 +154,7 @@ const setScore = (categoryIDToSet) => {
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores2(tempScores);
+    setCurrentPlayer("Player1")
   }
 };
 
@@ -195,6 +197,7 @@ const setScore = (categoryIDToSet) => {
                     />
 
                     <h2 className='rolls-this-turn'>Rolls this turn: {rollsThisTurn}</h2>
+                    <h2 className='rolls-this-turn'>Current Player: {currentPlayer}</h2>
 
                 </div>
             </div>
