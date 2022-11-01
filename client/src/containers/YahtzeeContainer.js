@@ -13,9 +13,14 @@ const MainContainer = () => {
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
-const [scores, setScores] = useState([null, null, null, null, null,
+const [scores1, setScores1] = useState([null, null, null, null, null,
                                       null, null, null, null, null,
                                       null, null, null]) // thirteen nulls
+const [scores2, setScores2] = useState([null, null, null, null, null,
+                                      null, null, null, null, null,
+                                      null, null, null]) // thirteen nulls
+const [currentPlayer, setCurrentPlayer] = useState("Player1");
+const [players, setPlayers] = useState(["Player1", "Player2"]);
 
 useEffect(() => {
   YahtzeeService.getRolls()
@@ -53,18 +58,33 @@ const toggleLockDice = (i) => {
 
 const calculateTotals = () => {
   // set scores for Upper Total, Lower Total, and Grand total
-  const tempScores = scores.map(score => score);
+  
+  var tempScores = []
 
-  var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, scores);
+  if (currentPlayer=="Player1"){
+    tempScores = scores1.map(score => score);
+  }
+
+  else if(currentPlayer=="Player2"){
+    tempScores = scores2.map(score => score);
+  }
+
+  var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
   tempScores[7]=scoreToSet;
 
-  var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, scores);
+  var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
   tempScores[15]=scoreToSet;
 
-  var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, scores);
+  var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
   tempScores[16]=scoreToSet;
 
-  setScores(tempScores);
+  if (currentPlayer=="Player1"){
+    setScores1(tempScores);
+  }
+
+  else if(currentPlayer=="Player2"){
+    setScores2(tempScores);
+  }
 }
 
 const setScore = (categoryIDToSet) => {
@@ -81,7 +101,16 @@ const setScore = (categoryIDToSet) => {
 
   //Cammy asks is that not what we're doing there on line 56?
 
-  const scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores);
+  var scoreToSet = 0;
+
+  if (currentPlayer=="Player1"){
+
+    scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores1);
+  }
+
+  else if(currentPlayer=="Player2"){
+    scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores2);
+  }
 
   console.log("the score we get back is");
   console.log(scoreToSet);
@@ -111,10 +140,20 @@ const setScore = (categoryIDToSet) => {
 
   else if(categoryIDToSet=='Chance') { categoryIDToSet='14'; }
 
-  const tempScores = scores.map(score => score);
-  tempScores[categoryIDToSet]=scoreToSet;
+  if (currentPlayer=="Player1"){
 
-  setScores(tempScores);
+    const tempScores = scores1.map(score => score);
+    tempScores[categoryIDToSet]=scoreToSet;
+  
+    setScores1(tempScores);
+  }
+
+  else if(currentPlayer=="Player2"){
+    const tempScores = scores2.map(score => score);
+    tempScores[categoryIDToSet]=scoreToSet;
+  
+    setScores2(tempScores);
+  }
 };
 
 
@@ -162,7 +201,8 @@ const setScore = (categoryIDToSet) => {
 
             <div className="score-sheet">
                 <ScoreSheet 
-                  scores={scores}
+                  scores1={scores1}
+                  scores2={scores2}
                   currentRoll={currentRoll}
 
                   setScore={setScore}
