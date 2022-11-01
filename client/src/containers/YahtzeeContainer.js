@@ -19,8 +19,11 @@ const [scores1, setScores1] = useState([null, null, null, null, null,
 const [scores2, setScores2] = useState([null, null, null, null, null,
                                       null, null, null, null, null,
                                       null, null, null]) // thirteen nulls
+const [scores3, setScores3] = useState([null, null, null, null, null,
+                                      null, null, null, null, null,
+                                      null, null, null]) // thirteen nulls
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
-const [players, setPlayers] = useState(["Player1", "Player2"]);
+const [players, setPlayers] = useState(["Player1", "Player2", "Player3"]);
 
 useEffect(() => {
   YahtzeeService.getRolls()
@@ -63,29 +66,59 @@ const calculateTotals = () => {
 
   if (currentPlayer=="Player1"){
     tempScores = scores1.map(score => score);
+    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    tempScores[7]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    tempScores[15]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    tempScores[16]=scoreToSet;
+    setScores1(tempScores);
+
   }
 
   else if(currentPlayer=="Player2"){
     tempScores = scores2.map(score => score);
-  }
-
-  var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
-  tempScores[7]=scoreToSet;
-
-  var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
-  tempScores[15]=scoreToSet;
-
-  var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
-  tempScores[16]=scoreToSet;
-
-  if (currentPlayer=="Player1"){
-    setScores1(tempScores);
-  }
-
-  else if(currentPlayer=="Player2"){
+    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    tempScores[7]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    tempScores[15]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    tempScores[16]=scoreToSet;
     setScores2(tempScores);
   }
+
+  else if(currentPlayer=="Player3"){
+    tempScores = scores3.map(score => score);
+    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    tempScores[7]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    tempScores[15]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    tempScores[16]=scoreToSet;
+    setScores3(tempScores);
+
+  }
 }
+
+const setNextPlayer = () => {
+  const playerPosition=players.indexOf(currentPlayer)
+  const numberOfPlayers=players.length
+
+  console.log("playerposition")
+  console.log(playerPosition);
+
+  console.log("num of players")
+  console.log(numberOfPlayers);
+
+
+
+  if ((playerPosition+1)==numberOfPlayers){
+    setCurrentPlayer(players[0])
+  }
+  else{
+    setCurrentPlayer(players[(playerPosition+1)])
+  }
+};
 
 const setScore = (categoryIDToSet) => {
   
@@ -112,8 +145,14 @@ const setScore = (categoryIDToSet) => {
     scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores2);
   }
 
+  else if(currentPlayer=="Player3"){
+    scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores3);
+  }
+
   console.log("the score we get back is");
   console.log(scoreToSet);
+
+
 
   // if(categoryIDToSet=='1s') { categoryIDToSet='0'; }
   // else if(categoryIDToSet=='2s') { categoryIDToSet='1'; }
@@ -146,7 +185,7 @@ const setScore = (categoryIDToSet) => {
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores1(tempScores);
-    setCurrentPlayer("Player2")
+    setNextPlayer()
   }
 
   else if(currentPlayer=="Player2"){
@@ -154,7 +193,15 @@ const setScore = (categoryIDToSet) => {
     tempScores[categoryIDToSet]=scoreToSet;
   
     setScores2(tempScores);
-    setCurrentPlayer("Player1")
+    setNextPlayer()
+  }
+
+  else if(currentPlayer=="Player3"){
+    const tempScores = scores3.map(score => score);
+    tempScores[categoryIDToSet]=scoreToSet;
+  
+    setScores3(tempScores);
+    setNextPlayer()
   }
 };
 
@@ -206,6 +253,7 @@ const setScore = (categoryIDToSet) => {
                 <ScoreSheet 
                   scores1={scores1}
                   scores2={scores2}
+                  scores3={scores3}
                   currentRoll={currentRoll}
 
                   setScore={setScore}
