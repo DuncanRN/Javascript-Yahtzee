@@ -15,7 +15,7 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
         rollDice();
     };
 
-    if(rollsThisTurn==1){
+    if(rollsThisTurn==3){
         return(
             <div className="dice-roller">
                 <h2 className='turn-heading'>Turn Complete.</h2>  
