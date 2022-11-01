@@ -10,7 +10,22 @@ const SingleDice = ({dieNumber, toggleLockDice, index, isThisDiceLocked}) => {
   if (isThisDiceLocked==true) {lockedOrUnlockedClass="locked"; }
   else {lockedOrUnlockedClass="unlocked"; }
 
-  var thisDiceImage = "./img/blank.png"; // this is the initial default dice - a blank face
+  var thisDiceImage = "./img/blank.png"
+  if(index=="0"){
+    thisDiceImage = "./img/dice_animated.gif"; 
+  }
+  else if(index==1){
+    thisDiceImage = "./img/dice_animated1.gif"; 
+  }
+  if(index==2){
+    thisDiceImage = "./img/dice_animated2.gif"; 
+  }
+  if(index==3){
+    thisDiceImage = "./img/dice_animated3.gif"; 
+  }
+  if(index==4){
+    thisDiceImage = "./img/dice_animated4.gif"; 
+  }
 
   if (dieNumber==1) { thisDiceImage = "./img/0.png"; }
   else if (dieNumber==2) { thisDiceImage = "./img/1.png"; }

@@ -182,23 +182,19 @@ const checkEndGame = () => {
 
 const setScore = (categoryIDToSet) => {
   
-
-  // TODO
   // in here we check if the current player has a score set in this category. 
   // if they do we return an error message. 
   // whereever we're calling setScore - we should catch teh error message and output it!!!
-
 
   setRollsThisTurn(0);
   setCurrentRoll([null, null, null, null, null]);
   setLockedDice([false, false, false, false, false]); 
   
-
   // Duncan wants to ask an instructor about this if there is time.
   // We should be able to just call setLockedDice() and that would 
   // set it to the default values - [false, false, false, false, false]... but that crashes the whole thing down
 
-  //Cammy asks is that not what we're doing there on line 56?
+  // Cammy asks is that not what we're doing there on line 56?
 
   var scoreToSet = 0;
 

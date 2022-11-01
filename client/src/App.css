@@ -157,7 +157,8 @@ body{
   border-bottom-left-radius:0px;
   border-bottom-right-radius:0px;
   box-shadow:inset 0px 1px 0px 0px #8fa1c6;
-  background:linear-gradient(#91dccd, #62c8c8);
+  background:linear-gradient(#91dccd, #7aa6a6);
+  border-radius:4px;
   }
 
   .roll-dice-section{
@@ -205,6 +206,7 @@ ul {
   background-color: white;
   color: black;
   border: 12px solid black;
+  border-radius:15px;
   margin-left: 15%;
   margin-right: 15%;
 }
@@ -213,6 +215,7 @@ td {
   border: 1px solid black;
   width: 5em;
   text-align: center;
+  border-radius:5px;
 }
 
 th {
