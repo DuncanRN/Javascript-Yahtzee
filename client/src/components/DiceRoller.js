@@ -29,10 +29,14 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
     else
     {
         return (
+            <>
             <div className='roll-dice-section'>
                 <button className="roll-dice-button" onClick={handleClick}>Roll!</button>
+            </div>
+            <div>
                 <h2 className='roll-the-dice-statement'>Roll the dice to start the game!</h2>
             </div>
+            </>
         );
     };
 };
