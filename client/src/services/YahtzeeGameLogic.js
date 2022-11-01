@@ -179,44 +179,17 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         };
         return valueOfAllCategories;
 
-
-
-        // var notNulledYahtzee = 0;
-        // var notNulledChance = 0;
-        // if(tempScores[13]==null) { notNulledYahtzee = 0 } else { notNulledYahtzee=tempScores[13] }
-        // if( tempScores[14] == null ) { notNulledChance = 0 }  else { notNulledChance= tempScores[14]}
-
-        // // TODO this is a Duncan bodge fix.
-        // // perhaps the scores should all be default zero
-
-
-        // const valueOfLastSevenCategories = tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+notNulledYahtzee+notNulledChance;
-        
-        
-        // return valueOfLastSevenCategories;
-
     }
 
     else if(categoryIDToSet=="Grand_Total")
     {
         const tempScores = scores.map(score => score);
 
-        // var notNulledYahtzee = 0;
-        // var notNulledChance = 0;
-        // if(tempScores[13]==null) { notNulledYahtzee = 0 } else { notNulledYahtzee=tempScores[13] }
-        // if( tempScores[14] == null ) { notNulledChance = 0 }  else { notNulledChance= tempScores[14]}
-        // maybe here we should discard all the null values.
-        // and add together all the non null values.
 
 
-        var valueOfAllCategories=0;
+        const total = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
+        return total;
 
-        for (let i = 0; i < 15; i++) {
-            if (tempScores[i] != null) {
-                valueOfAllCategories=valueOfAllCategories+ tempScores[i];
-            };
-        };
-        return valueOfAllCategories;
         // const valueOfAllCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
         
 

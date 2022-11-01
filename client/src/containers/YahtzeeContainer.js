@@ -115,8 +115,6 @@ const setScore = (categoryIDToSet) => {
   tempScores[categoryIDToSet]=scoreToSet;
 
   setScores(tempScores);
-  // need to wait here?
-  // calculateTotals();
 };
 
 

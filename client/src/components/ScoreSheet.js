@@ -54,33 +54,28 @@ const ScoreSheet = ({scores, currentRoll, setScore}) => {
     if(tempScores[2]!==null) { output3 = tempScores[2]; buttonclass3="buttonScoresDeactivated"; }
     if(tempScores[3]!==null) { output4 = tempScores[3]; buttonclass4="buttonScoresDeactivated"; }
     if(tempScores[4]!==null) { output5 = tempScores[4]; buttonclass5="buttonScoresDeactivated"; }
-
     if(tempScores[5]!==null) { output6 = tempScores[5]; buttonclass6="buttonScoresDeactivated"; } // Sixes
 
-    
     if(tempScores[6]!==null) { output7 = tempScores[6]; buttonclass7="buttonScoresDeactivated"; } //Bonus
-
-
-    if(tempScores[6]!==null) { output7 = tempScores[6]; buttonclass7="buttonScoresDeactivated"; } // Bonus
-
     if(tempScores[7]!==null) { output8 = tempScores[7];} // Upper Total
+    
     if(tempScores[8]!==null) { output9 = tempScores[8]; buttonclass9="buttonScoresDeactivated"; } // Three of a Kind
     if(tempScores[9]!==null) { output10 = tempScores[9]; buttonclass10="buttonScoresDeactivated"; } // Four of a Kind
     if(tempScores[10]!==null) { output11 = tempScores[10]; buttonclass11="buttonScoresDeactivated"; } // Full House
     if(tempScores[11]!==null) { output12 = tempScores[11]; buttonclass12="buttonScoresDeactivated"; } // Small Straight
     if(tempScores[12]!==null) { output13 = tempScores[12]; buttonclass13="buttonScoresDeactivated"; } // Large Straight
-
     if(tempScores[13]!=null) { output14 = tempScores[13]; buttonclass14="buttonScoresDeactivated"; } // Yahtzee
     if(tempScores[14]!=null) { output15 = tempScores[14]; buttonclass15="buttonScoresDeactivated"; } // Chance
     
     if(tempScores[15]!==null) { output16 = tempScores[15]; } // Lower Total
     if(tempScores[16]!==null) { output17 = tempScores[16]; } // Grand Total  
+    
     return (
         <div className="score-sheet">
             
 
             <div className="upper-scores">
-                <h2 classname='score-title'>Score Sheet</h2>
+                <h2 className='score-title'>Score Sheet</h2>
                 <h2>UPPER SECTION</h2>
                 <ul>
                     <li><button className={buttonclass1} value="0" onClick={handleScoreClick} >Ones: {output1}</button></li>
