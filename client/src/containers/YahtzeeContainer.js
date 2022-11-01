@@ -22,8 +22,18 @@ const [scores2, setScores2] = useState([null, null, null, null, null,
 const [scores3, setScores3] = useState([null, null, null, null, null,
                                       null, null, null, null, null,
                                       null, null, null]) // thirteen nulls
+const [scores4, setScores4] = useState([null, null, null, null, null,
+                                        null, null, null, null, null,
+                                        null, null, null]) // thirteen nulls
+const [scores5, setScores5] = useState([null, null, null, null, null,
+                                          null, null, null, null, null,
+                                          null, null, null]) // thirteen nulls
+const [scores6, setScores6] = useState([null, null, null, null, null,
+                                            null, null, null, null, null,
+                                            null, null, null]) // thirteen nulls
+                                            
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
-const [players, setPlayers] = useState(["Player1", "Player2", "Player3"]);
+const [players, setPlayers] = useState(["Player1", "Player2", "Player3", "Player4", "Player5", "Player6"]);
 
 useEffect(() => {
   YahtzeeService.getRolls()
@@ -64,8 +74,8 @@ const calculateTotals = (tempScores) => {
   
   // var tempScores = []
 
-  console.log("IN calculateTotals")
-  console.log("currentPlayer");
+  // console.log("IN calculateTotals")
+  // console.log("currentPlayer");
 
   console.log(currentPlayer);
 
@@ -102,23 +112,39 @@ const calculateTotals = (tempScores) => {
     var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
     tempScores[16]=scoreToSet;
     setScores3(tempScores);
-
-    console.log("here is player3's tempScores")
-    console.table(tempScores);
-
+  }
+  else if(currentPlayer=="Player4"){
+    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    tempScores[7]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    tempScores[15]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    tempScores[16]=scoreToSet;
+    setScores4(tempScores);
+  }
+  else if(currentPlayer=="Player5"){
+    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    tempScores[7]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    tempScores[15]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    tempScores[16]=scoreToSet;
+    setScores5(tempScores);
+  }
+  else if(currentPlayer=="Player6"){
+    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    tempScores[7]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    tempScores[15]=scoreToSet;
+    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    tempScores[16]=scoreToSet;
+    setScores6(tempScores);
   }
 }
 
 const setNextPlayer = () => {
   const playerPosition=players.indexOf(currentPlayer)
   const numberOfPlayers=players.length
-
-  // console.log("playerposition")
-  // console.log(playerPosition);
-
-  // console.log("num of players")
-  // console.log(numberOfPlayers);
-
 
 
   if ((playerPosition+1)==numberOfPlayers){
@@ -131,8 +157,8 @@ const setNextPlayer = () => {
 
 const setScore = (categoryIDToSet) => {
   
-  console.log("in setScore function");
-  console.log(categoryIDToSet);
+  // console.log("in setScore function");
+  // console.log(categoryIDToSet);
   
 
   setRollsThisTurn(0);
@@ -161,17 +187,18 @@ const setScore = (categoryIDToSet) => {
     scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores3);
   }
 
-  // console.log("the score we get back is");
-  // console.log(scoreToSet);
+  else if(currentPlayer=="Player4"){
+    scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores4);
+  }
 
+  else if(currentPlayer=="Player5"){
+    scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores5);
+  }
 
+  else if(currentPlayer=="Player6"){
+    scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores6);
+  }
 
-  // if(categoryIDToSet=='1s') { categoryIDToSet='0'; }
-  // else if(categoryIDToSet=='2s') { categoryIDToSet='1'; }
-  // else if(categoryIDToSet=='3s') { categoryIDToSet='2'; }
-  // else if(categoryIDToSet=='4s') { categoryIDToSet='3'; }
-  // else if(categoryIDToSet=='5s') { categoryIDToSet='4'; }
-  // else if(categoryIDToSet=='6s') { categoryIDToSet='5'; } Duncan took this out
 
   if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
 
@@ -191,9 +218,6 @@ const setScore = (categoryIDToSet) => {
 
   else if(categoryIDToSet=='Chance') { categoryIDToSet='14'; }
 
-
-  /// HERE we have set the scores now we should calculate the totals before we change player 
-  
 
 
   if (currentPlayer=="Player1"){
@@ -229,12 +253,42 @@ const setScore = (categoryIDToSet) => {
 
     setNextPlayer()
   }
+
+  //
+  else if(currentPlayer=="Player4"){
+    const tempScores = scores4.map(score => score);
+    tempScores[categoryIDToSet]=scoreToSet;
+  
+    setScores4(tempScores);
+
+    calculateTotals(tempScores);
+
+    setNextPlayer()
+  }
+
+  else if(currentPlayer=="Player5"){
+    const tempScores = scores5.map(score => score);
+    tempScores[categoryIDToSet]=scoreToSet;
+  
+    setScores5(tempScores);
+
+    calculateTotals(tempScores);
+
+    setNextPlayer()
+  }
+
+  else if(currentPlayer=="Player6"){
+    const tempScores = scores6.map(score => score);
+    tempScores[categoryIDToSet]=scoreToSet;
+  
+    setScores6(tempScores);
+
+    calculateTotals(tempScores);
+
+    setNextPlayer()
+  }
 };
 
-
-// TODO function setScore() will take the currentRoll and the categoryID from the category the user has just clicked.
-// it will use calculateCategoryScore() which is imported from YahtzeeHelper.js
-// it will set that score into the array 'scores' at the position categoryID
 
 // TODO test if the game is over
 // if we have scores for every category, the game is over, display final score. 
@@ -280,6 +334,9 @@ const setScore = (categoryIDToSet) => {
                   scores1={scores1}
                   scores2={scores2}
                   scores3={scores3}
+                  scores4={scores4}
+                  scores5={scores5}
+                  scores6={scores6}
                   currentRoll={currentRoll}
 
                   setScore={setScore}
