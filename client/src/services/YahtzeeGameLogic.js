@@ -184,18 +184,23 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
     else if(categoryIDToSet=="Grand_Total")
     {
         const tempScores = scores.map(score => score);
+        var scoreForGrandTotal=0;
 
-        const total = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6]+tempScores[8]+tempScores[9]+tempScores[10]+tempScores[11]+tempScores[12]+tempScores[13]+tempScores[14];
-        return total;
+        for (let i = 8; i < 15; i++) {
+            if (tempScores[i] != null) {
+                scoreForGrandTotal=scoreForGrandTotal+ tempScores[i];
+            };
+        };
+        
+        for (let i = 0; i < 6; i++) {
+            if (tempScores[i] != null) {
+                scoreForGrandTotal=scoreForGrandTotal+ tempScores[i];
+            };
+        };
+        
+
+        return scoreForGrandTotal;
 
     }
 
 }
-
-// TODO another function here to calculate the bonuses
-// are there two different bonuses? Needs two different functions?
-
-//Only one bonus - it needs to see the values of the upper score though and total them up.
-//If it's >= 63 it should award the bonus of 35. Maybe pass down the state 'scores' and add 
-// up the first six values.
-

@@ -141,7 +141,31 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
     var buttonclass15 = "buttonScores";
 
 
-    if(tempScores1[0]!==null) { outputP1_1 = tempScores1[0]; buttonclass1="buttonScoresDeactivated";  } // Ones
+    // activate all buttons
+    // document.getElementById("0").disabled = false;
+    // document.getElementById("0").disabled = false;
+    // document.getElementById("1").disabled = false;
+    // document.getElementById("2").disabled = false;
+    // document.getElementById("3").disabled = false;
+    // document.getElementById("4").disabled = false;
+    // document.getElementById("5").disabled = false;
+    // skipping 6 and 7 - bonus and lower total
+    // document.getElementById("8").disabled = false;
+    // document.getElementById("9").disabled = false;
+    // document.getElementById("10").disabled = false;
+    // document.getElementById("11").disabled = false;
+    // document.getElementById("12").disabled = false;
+    // document.getElementById("13").disabled = false;
+    // document.getElementById("14").disabled = false;
+
+    // Player1
+
+    // document.getElementById("Button").disabled = true;
+    // Enabling a html button
+    // document.getElementById("Button").disabled = false;
+
+    
+    if(tempScores1[0]!==null) { outputP1_1 = tempScores1[0]; buttonclass1="buttonScoresDeactivated"; } // Ones
     if(tempScores1[1]!==null) { outputP1_2 = tempScores1[1]; buttonclass2="buttonScoresDeactivated"; }
     if(tempScores1[2]!==null) { outputP1_3 = tempScores1[2]; buttonclass3="buttonScoresDeactivated"; }
     if(tempScores1[3]!==null) { outputP1_4 = tempScores1[3]; buttonclass4="buttonScoresDeactivated"; }
@@ -277,7 +301,6 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
     if(tempScores6[15]!==null) { outputP6_16 = tempScores6[15]; } // Lower Total
     if(tempScores6[16]!==null) { outputP6_17 = tempScores6[16]; } // Grand Total  
 
-
     
     return (
         <div className="score-sheet">
@@ -287,26 +310,26 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
                 
                 <table className="table">
                     <tr><th>UPPER SECTION</th> <th>{ playersNames[0] } </th> <th>{ playersNames[1] } </th>  <th>{ playersNames[2] } </th>  <th>{ playersNames[3] } </th>   <th>{ playersNames[4] } </th>  <th>{ playersNames[5] } </th>  </tr>
-                    <tr><td><button className={buttonclass1} value="0" onClick={handleScoreClick} >Ones:</button></td>      <td>{outputP1_1}</td> <td>{outputP2_1}</td> <td>{outputP3_1}</td> <td>{outputP4_1}</td> <td>{outputP5_1}</td> <td>{outputP6_1}</td> </tr>
-                    <tr><td><button className={buttonclass2}  value="1" onClick={handleScoreClick}>Twos:</button></td>      <td>{outputP1_2}</td> <td>{outputP2_2}</td> <td>{outputP3_2}</td> <td>{outputP4_2}</td> <td>{outputP5_2}</td> <td>{outputP6_2}</td> </tr>
-                    <tr><td><button className={buttonclass3}  value="2" onClick={handleScoreClick}>Threes: </button></td>   <td>{outputP1_3}</td> <td>{outputP2_3}</td> <td>{outputP3_3}</td> <td>{outputP4_3}</td> <td>{outputP5_3}</td> <td>{outputP6_3}</td> </tr>
-                    <tr><td><button className={buttonclass4}  value="3" onClick={handleScoreClick}>Fours: </button></td>    <td>{outputP1_4}</td> <td>{outputP2_4}</td> <td>{outputP3_4}</td> <td>{outputP4_4}</td> <td>{outputP5_4}</td> <td>{outputP6_4}</td> </tr>
-                    <tr><td><button className={buttonclass5}  value="4" onClick={handleScoreClick}>Fives: </button></td>    <td>{outputP1_5}</td> <td>{outputP2_5}</td> <td>{outputP3_5}</td> <td>{outputP4_5}</td> <td>{outputP5_5}</td> <td>{outputP6_5}</td> </tr>
-                    <tr><td><button className={buttonclass6}  value="5" onClick={handleScoreClick}>Sixes: </button></td>    <td>{outputP1_6}</td> <td>{outputP2_6}</td> <td>{outputP3_6}</td> <td>{outputP4_6}</td> <td>{outputP5_6}</td> <td>{outputP6_6}</td> </tr>
-                    <tr><td><button className={buttonclass7} value="Bonus" onClick={handleScoreClick}>Bonus: </button></td> <td>{outputP1_7}</td> <td>{outputP2_7}</td> <td>{outputP3_7}</td> <td>{outputP4_7}</td> <td>{outputP5_7}</td> <td>{outputP6_7}</td> </tr>
+                    <tr><td><button className={buttonclass1} id="0" value="0" onClick={handleScoreClick} >Ones:</button></td>      <td>{outputP1_1}</td> <td>{outputP2_1}</td> <td>{outputP3_1}</td> <td>{outputP4_1}</td> <td>{outputP5_1}</td> <td>{outputP6_1}</td> </tr>
+                    <tr><td><button className={buttonclass2} id="1" value="1" onClick={handleScoreClick}>Twos:</button></td>      <td>{outputP1_2}</td> <td>{outputP2_2}</td> <td>{outputP3_2}</td> <td>{outputP4_2}</td> <td>{outputP5_2}</td> <td>{outputP6_2}</td> </tr>
+                    <tr><td><button className={buttonclass3} id="2" value="2" onClick={handleScoreClick}>Threes: </button></td>   <td>{outputP1_3}</td> <td>{outputP2_3}</td> <td>{outputP3_3}</td> <td>{outputP4_3}</td> <td>{outputP5_3}</td> <td>{outputP6_3}</td> </tr>
+                    <tr><td><button className={buttonclass4} id="3" value="3" onClick={handleScoreClick}>Fours: </button></td>    <td>{outputP1_4}</td> <td>{outputP2_4}</td> <td>{outputP3_4}</td> <td>{outputP4_4}</td> <td>{outputP5_4}</td> <td>{outputP6_4}</td> </tr>
+                    <tr><td><button className={buttonclass5} id="4" value="4" onClick={handleScoreClick}>Fives: </button></td>    <td>{outputP1_5}</td> <td>{outputP2_5}</td> <td>{outputP3_5}</td> <td>{outputP4_5}</td> <td>{outputP5_5}</td> <td>{outputP6_5}</td> </tr>
+                    <tr><td><button className={buttonclass6} id="5" value="5" onClick={handleScoreClick}>Sixes: </button></td>    <td>{outputP1_6}</td> <td>{outputP2_6}</td> <td>{outputP3_6}</td> <td>{outputP4_6}</td> <td>{outputP5_6}</td> <td>{outputP6_6}</td> </tr>
+                    <tr><td><button className={buttonclass7} id="6" value="Bonus" >Bonus: </button></td> <td>{outputP1_7}</td> <td>{outputP2_7}</td> <td>{outputP3_7}</td> <td>{outputP4_7}</td> <td>{outputP5_7}</td> <td>{outputP6_7}</td> </tr>
                     
-                    <tr><td><button className="buttonTotal" >Upper Total: </button></td> <td>{outputP1_8}</td> <td>  {outputP2_8}</td> <td> {outputP3_8}</td> <td> {outputP4_8}</td> <td> {outputP5_8}</td> <td> {outputP6_8} </td></tr>
+                    <tr><td><button className="buttonTotal" id="7" >Upper Total: </button></td> <td>{outputP1_8}</td> <td>  {outputP2_8}</td> <td> {outputP3_8}</td> <td> {outputP4_8}</td> <td> {outputP5_8}</td> <td> {outputP6_8} </td></tr>
                 
             
                     <tr><th>LOWER SECTION</th></tr>
                 
-                    <tr><td><button className={buttonclass9} value="Three_of_a_Kind" onClick={handleScoreClick}>Three of a Kind:</button> </td> <td>{outputP1_9} </td> <td>{outputP2_9} </td> <td>{outputP3_9} </td> <td>{outputP4_9} </td> <td>{outputP5_9} </td> <td>{outputP6_9} </td> </tr>
-                    <tr><td><button className={buttonclass10} value="Four_of_a_Kind" onClick={handleScoreClick}>Four of a Kind: </button> </td> <td>{outputP1_10}</td> <td>{outputP2_10}</td> <td>{outputP3_10}</td> <td>{outputP4_10}</td> <td>{outputP5_10}</td> <td>{outputP6_10}</td> </tr>
-                    <tr><td><button className={buttonclass11} value="Full_House" onClick={handleScoreClick}>Full House: </button>         </td> <td>{outputP1_11}</td> <td>{outputP2_11}</td> <td>{outputP3_11}</td> <td>{outputP4_11}</td> <td>{outputP5_11}</td> <td>{outputP6_11}</td> </tr>
-                    <tr><td><button className={buttonclass12} value="Small_Straight" onClick={handleScoreClick}>Small Straight: </button> </td> <td>{outputP1_12}</td> <td>{outputP2_12}</td> <td>{outputP3_12}</td> <td>{outputP4_12}</td> <td>{outputP5_12}</td> <td>{outputP6_12}</td> </tr>
-                    <tr><td><button className={buttonclass13} value="Large_Straight" onClick={handleScoreClick}>Large Straight:  </button></td> <td>{outputP1_13}</td> <td>{outputP2_13}</td> <td>{outputP3_13}</td> <td>{outputP4_13}</td> <td>{outputP5_13}</td> <td>{outputP6_13}</td> </tr>
-                    <tr><td><button className={buttonclass14} value="Yahtzee" onClick={handleScoreClick}>Yahtzee:  </button>              </td> <td>{outputP1_14}</td> <td>{outputP2_14}</td> <td>{outputP3_14}</td> <td>{outputP4_14}</td> <td>{outputP5_14}</td> <td>{outputP6_14}</td> </tr>
-                    <tr><td><button className={buttonclass15} value="Chance" onClick={handleScoreClick}>Chance:  </button>                </td> <td>{outputP1_15}</td> <td>{outputP2_15}</td> <td>{outputP3_15}</td> <td>{outputP4_15}</td> <td>{outputP5_15}</td> <td>{outputP6_15}</td> </tr>
+                    <tr><td><button className={buttonclass9}  id="8"  value="Three_of_a_Kind" onClick={handleScoreClick}>Three of a Kind:</button> </td> <td>{outputP1_9} </td> <td>{outputP2_9} </td> <td>{outputP3_9} </td> <td>{outputP4_9} </td> <td>{outputP5_9} </td> <td>{outputP6_9} </td> </tr>
+                    <tr><td><button className={buttonclass10} id="9"  value="Four_of_a_Kind" onClick={handleScoreClick}>Four of a Kind: </button> </td> <td>{outputP1_10}</td> <td>{outputP2_10}</td> <td>{outputP3_10}</td> <td>{outputP4_10}</td> <td>{outputP5_10}</td> <td>{outputP6_10}</td> </tr>
+                    <tr><td><button className={buttonclass11} id="10" value="Full_House" onClick={handleScoreClick}>Full House: </button>         </td> <td>{outputP1_11}</td> <td>{outputP2_11}</td> <td>{outputP3_11}</td> <td>{outputP4_11}</td> <td>{outputP5_11}</td> <td>{outputP6_11}</td> </tr>
+                    <tr><td><button className={buttonclass12} id="11" value="Small_Straight" onClick={handleScoreClick}>Small Straight: </button> </td> <td>{outputP1_12}</td> <td>{outputP2_12}</td> <td>{outputP3_12}</td> <td>{outputP4_12}</td> <td>{outputP5_12}</td> <td>{outputP6_12}</td> </tr>
+                    <tr><td><button className={buttonclass13} id="12" value="Large_Straight" onClick={handleScoreClick}>Large Straight:  </button></td> <td>{outputP1_13}</td> <td>{outputP2_13}</td> <td>{outputP3_13}</td> <td>{outputP4_13}</td> <td>{outputP5_13}</td> <td>{outputP6_13}</td> </tr>
+                    <tr><td><button className={buttonclass14} id="13" value="Yahtzee" onClick={handleScoreClick}>Yahtzee:  </button>              </td> <td>{outputP1_14}</td> <td>{outputP2_14}</td> <td>{outputP3_14}</td> <td>{outputP4_14}</td> <td>{outputP5_14}</td> <td>{outputP6_14}</td> </tr>
+                    <tr><td><button className={buttonclass15} id="14" value="Chance" onClick={handleScoreClick}>Chance:  </button>                </td> <td>{outputP1_15}</td> <td>{outputP2_15}</td> <td>{outputP3_15}</td> <td>{outputP4_15}</td> <td>{outputP5_15}</td> <td>{outputP6_15}</td> </tr>
                     
                     <tr><td><button className="buttonTotal" >Lower Total: </button>                                                       </td> <td>{outputP1_16}</td> <td>{outputP2_16}</td> <td>{outputP3_16}</td> <td>{outputP4_16}</td> <td>{outputP5_16}</td> <td>{outputP6_16}</td> </tr>
                     <tr><td><button className="buttonTotal" >Grand Total: </button>                                                       </td> <td>{outputP1_17}</td> <td>{outputP2_17}</td> <td>{outputP3_17}</td> <td>{outputP4_17}</td> <td>{outputP5_17}</td> <td>{outputP6_17}</td> </tr>
@@ -315,6 +338,12 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
         </div>
     )
 
+    // if(tempScores1[0]!==null) {document.getElementById("0").disabled = true; } else {  document.getElementById("0").disabled = false;  }
+
+
 }
+
+
+
 
 export default ScoreSheet;

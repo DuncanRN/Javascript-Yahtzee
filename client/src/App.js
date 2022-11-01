@@ -5,7 +5,7 @@ function App() {
   return (
     <>
     <div className="main-container">
-    <h1>Yahtzee!</h1>
+    <h1>YAHTZEE!</h1>
     <YahtzeeContainer />
     </div>
     </>

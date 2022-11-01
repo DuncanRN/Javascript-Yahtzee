@@ -26,7 +26,7 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
             </div>
         );
     }
-    else
+    else if(rollsThisTurn==0)
     {
         return (
             <>
@@ -36,6 +36,17 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
             <div>
                 <h2 className='roll-the-dice-statement'>Roll the dice to start the game!</h2>
             </div>
+            </>
+        );
+    }
+    else
+    {
+        return (
+            <>
+            <div className='roll-dice-section'>
+                <button className="roll-dice-button" onClick={handleClick}>Roll!</button>
+            </div>
+            
             </>
         );
     };

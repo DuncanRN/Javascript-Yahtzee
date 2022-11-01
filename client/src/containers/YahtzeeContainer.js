@@ -35,8 +35,8 @@ const [scores6, setScores6] = useState([null, null, null, null, null,
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
 const [players, setPlayers] = useState(["Player1", "Player2", "Player3", "Player4", "Player5", "Player6"]);
 
-const [playersNames, setPlayersNames] = useState(["Cammy", "Louise", "Duncan", "Lucy", "Colin", "Matt"]);
-const [isEndGame, setIsEndGame] = useState(false)
+const [playersNames, setPlayersNames] = useState(["Duncan", "Louise",  "Cammy", "Lucy", "Colin", "Matt"]);
+const [isEndGame, setIsEndGame] = useState(false);
 
 
 useEffect(() => {
@@ -44,9 +44,6 @@ useEffect(() => {
   .then(data => setCurrentRoll(data[0].roll))
 }, []);
 
-// useEffect(() => {
-//   calculateTotals()
-// }, [currentRoll]);
 
 const rollDice = () => {
   const tempDice = currentRoll;
@@ -76,16 +73,7 @@ const toggleLockDice = (i) => {
 const calculateTotals = (tempScores) => {
   // set scores for Upper Total, Lower Total, and Grand total
   
-  // var tempScores = []
-
-  // console.log("IN calculateTotals")
-  // console.log("currentPlayer");
-
-  console.log(currentPlayer);
-
-
   if (currentPlayer=="Player1"){
-    // tempScores = scores1.map(score => score);
     var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
@@ -97,7 +85,6 @@ const calculateTotals = (tempScores) => {
   }
 
   else if(currentPlayer=="Player2"){
-    // tempScores = scores2.map(score => score);
     var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
@@ -108,7 +95,6 @@ const calculateTotals = (tempScores) => {
   }
 
   else if(currentPlayer=="Player3"){
-    // tempScores = scores3.map(score => score);
     var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
@@ -147,6 +133,7 @@ const calculateTotals = (tempScores) => {
 }
 
 const setNextPlayer = () => {
+  // function to change to make the next player the active player.
   const playerPosition=players.indexOf(currentPlayer)
   const numberOfPlayers=players.length
 
@@ -160,6 +147,7 @@ const setNextPlayer = () => {
 };
 
 const checkEndGame = () => {
+  // function to check if we are at the end of the game - last player takes their last turn.
   const numberOfPlayers=players.length
   const playerPosition=players.indexOf(currentPlayer)
   var scoresToUse
@@ -194,9 +182,12 @@ const checkEndGame = () => {
 
 const setScore = (categoryIDToSet) => {
   
-  // console.log("in setScore function");
-  // console.log(categoryIDToSet);
-  
+
+  // TODO
+  // in here we check if the current player has a score set in this category. 
+  // if they do we return an error message. 
+  // whereever we're calling setScore - we should catch teh error message and output it!!!
+
 
   setRollsThisTurn(0);
   setCurrentRoll([null, null, null, null, null]);
@@ -332,9 +323,11 @@ const getPlayerName = () => {
 };
 
 
-// TODO test if the game is over
-// if we have scores for every category, the game is over, display final score. 
-// Otherwise do the following return
+  // fix output so it says something like "Louise's Roll, then Louise's 1st Roll"
+  var firstSecondThirdOutput="";
+  if(rollsThisTurn=='1') { firstSecondThirdOutput=" 1st "; }
+  else if(rollsThisTurn=='2') { firstSecondThirdOutput=" 2nd "; }
+
 
 
   return (
@@ -369,7 +362,7 @@ const getPlayerName = () => {
                         rollDice={rollDice}
                     />
 
-                    <h2 className='rolls-this-turn'>{getPlayerName()}'s roll: {rollsThisTurn}</h2>
+                    <h2 className='rolls-this-turn'>{getPlayerName()}'s {firstSecondThirdOutput} roll: </h2>
 
                 </div>
             </div>
