@@ -201,3 +201,8 @@ td {
 th {
   padding: 0.55em;
 }
+
+.game-over {
+  display: flex;
+  justify-content: center;
+}

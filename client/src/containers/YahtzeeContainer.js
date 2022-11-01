@@ -36,6 +36,7 @@ const [currentPlayer, setCurrentPlayer] = useState("Player1");
 const [players, setPlayers] = useState(["Player1", "Player2", "Player3", "Player4", "Player5", "Player6"]);
 
 const [playersNames, setPlayersNames] = useState(["Cammy", "Louise", "Duncan", "Lucy", "Colin", "Matt"]);
+const [isEndGame, setIsEndGame] = useState(false)
 
 
 useEffect(() => {
@@ -158,6 +159,39 @@ const setNextPlayer = () => {
   }
 };
 
+const checkEndGame = () => {
+  const numberOfPlayers=players.length
+  const playerPosition=players.indexOf(currentPlayer)
+  var scoresToUse
+
+
+  if ((playerPosition+1)==numberOfPlayers) {
+    if (currentPlayer=="Player1"){
+      scoresToUse = scores1;
+    }
+    if (currentPlayer=="Player2"){
+      scoresToUse = scores2;
+    }
+    if (currentPlayer=="Player3"){
+      scoresToUse = scores3;
+    }
+    if (currentPlayer=="Player4"){
+      scoresToUse = scores4;
+    }
+    if (currentPlayer=="Player5"){
+      scoresToUse = scores5;
+    }
+    if (currentPlayer=="Player6"){
+      scoresToUse = scores6;
+    }
+
+    if ((scoresToUse.every(element => element !== null))) {
+      console.log("EndGAME")
+      setIsEndGame(true)
+    };
+  };
+};
+
 const setScore = (categoryIDToSet) => {
   
   // console.log("in setScore function");
@@ -231,7 +265,7 @@ const setScore = (categoryIDToSet) => {
     setScores1(tempScores);
 
     calculateTotals(tempScores);
-
+    checkEndGame()
     setNextPlayer()
   }
 
@@ -242,7 +276,7 @@ const setScore = (categoryIDToSet) => {
     setScores2(tempScores);
 
     calculateTotals(tempScores);
-
+    checkEndGame()
     setNextPlayer()
   }
 
@@ -253,7 +287,7 @@ const setScore = (categoryIDToSet) => {
     setScores3(tempScores);
 
     calculateTotals(tempScores);
-
+    checkEndGame()
     setNextPlayer()
   }
 
@@ -265,7 +299,7 @@ const setScore = (categoryIDToSet) => {
     setScores4(tempScores);
 
     calculateTotals(tempScores);
-
+    checkEndGame()
     setNextPlayer()
   }
 
@@ -276,7 +310,7 @@ const setScore = (categoryIDToSet) => {
     setScores5(tempScores);
 
     calculateTotals(tempScores);
-
+    checkEndGame()
     setNextPlayer()
   }
 
@@ -287,7 +321,7 @@ const setScore = (categoryIDToSet) => {
     setScores6(tempScores);
 
     calculateTotals(tempScores);
-
+    checkEndGame()
     setNextPlayer()
   }
 };
@@ -312,6 +346,10 @@ const getPlayerName = () => {
             
         <div className="game-container">
 
+          {isEndGame ?
+          <h2 className="game-over">Game Over!</h2>
+          :
+
             <div className="dice-and-roller">
                 <div className="dice-display">
                   <ul className='dice-container-display'>
@@ -335,6 +373,7 @@ const getPlayerName = () => {
 
                 </div>
             </div>
+}
 
             <div className="score-sheet">
                 <ScoreSheet 
