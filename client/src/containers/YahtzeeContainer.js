@@ -292,6 +292,11 @@ const setScore = (categoryIDToSet) => {
   }
 };
 
+const getPlayerName = () => {
+  const playerNameIndex = players.indexOf(currentPlayer);
+  return playersNames[playerNameIndex];
+};
+
 
 // TODO test if the game is over
 // if we have scores for every category, the game is over, display final score. 
@@ -326,8 +331,7 @@ const setScore = (categoryIDToSet) => {
                         rollDice={rollDice}
                     />
 
-                    <h2 className='rolls-this-turn'>Rolls this turn: {rollsThisTurn}</h2>
-                    <h2 className='rolls-this-turn'>Current Player: {currentPlayer}</h2>
+                    <h2 className='rolls-this-turn'>{getPlayerName()}'s roll: {rollsThisTurn}</h2>
 
                 </div>
             </div>

@@ -177,18 +177,15 @@ ul {
   align-items: left;
 }
 
-/* .lower-scores{
-  display: flex;
+.table {
+  background-color: white;
+  color: black;
+  border: 12px solid black;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
-.upper-scores{
-  display: flex;
-} */
-
-/* .dice-roller-container{
-  justify-content: middle;
+td {
+  border: 1px solid black;
+  width: 5em;
 }
-
-.dice-roller{
-  justify-content: center;
-} */

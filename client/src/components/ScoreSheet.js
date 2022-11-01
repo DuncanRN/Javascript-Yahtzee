@@ -284,10 +284,9 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
             
 
             <div className="upper-scores">
-                <h2 className='score-title'>Score Sheet</h2>
                 
-                <table>
-                    <tr><th>UPPER SECTION</th> <th>{ playersNames[0] } </th>  <th>{ playersNames[1] } </th>  <th>{ playersNames[2] } </th>  <th>{ playersNames[3] } </th>   <th>{ playersNames[4] } </th>  <th>{ playersNames[5] } </th>  </tr>
+                <table className="table">
+                    <tr><th>UPPER SECTION</th> <th>{ playersNames[0] } </th> <th>{ playersNames[1] } </th>  <th>{ playersNames[2] } </th>  <th>{ playersNames[3] } </th>   <th>{ playersNames[4] } </th>  <th>{ playersNames[5] } </th>  </tr>
                     <tr><td><button className={buttonclass1} value="0" onClick={handleScoreClick} >Ones:</button></td>      <td>{outputP1_1}</td> <td>{outputP2_1}</td> <td>{outputP3_1}</td> <td>{outputP4_1}</td> <td>{outputP5_1}</td> <td>{outputP6_1}</td> </tr>
                     <tr><td><button className={buttonclass2}  value="1" onClick={handleScoreClick}>Twos:</button></td>      <td>{outputP1_2}</td> <td>{outputP2_2}</td> <td>{outputP3_2}</td> <td>{outputP4_2}</td> <td>{outputP5_2}</td> <td>{outputP6_2}</td> </tr>
                     <tr><td><button className={buttonclass3}  value="2" onClick={handleScoreClick}>Threes: </button></td>   <td>{outputP1_3}</td> <td>{outputP2_3}</td> <td>{outputP3_3}</td> <td>{outputP4_3}</td> <td>{outputP5_3}</td> <td>{outputP6_3}</td> </tr>
