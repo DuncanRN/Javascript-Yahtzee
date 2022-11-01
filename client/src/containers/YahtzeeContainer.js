@@ -35,6 +35,9 @@ const [scores6, setScores6] = useState([null, null, null, null, null,
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
 const [players, setPlayers] = useState(["Player1", "Player2", "Player3", "Player4", "Player5", "Player6"]);
 
+const [playersNames, setPlayersNames] = useState(["Cammy", "Louise", "Duncan", "Lucy", "Colin", "Matt"]);
+
+
 useEffect(() => {
   YahtzeeService.getRolls()
   .then(data => setCurrentRoll(data[0].roll))
@@ -337,6 +340,7 @@ const setScore = (categoryIDToSet) => {
                   scores4={scores4}
                   scores5={scores5}
                   scores6={scores6}
+                  playersNames={playersNames}
                   currentRoll={currentRoll}
 
                   setScore={setScore}
