@@ -142,24 +142,6 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
     var buttonclass14 = "buttonScores";
     var buttonclass15 = "buttonScores";
 
-
-    // activate all buttons
-    // document.getElementById("0").disabled = false;
-    // document.getElementById("0").disabled = false;
-    // document.getElementById("1").disabled = false;
-    // document.getElementById("2").disabled = false;
-    // document.getElementById("3").disabled = false;
-    // document.getElementById("4").disabled = false;
-    // document.getElementById("5").disabled = false;
-    // skipping 6 and 7 - bonus and lower total
-    // document.getElementById("8").disabled = false;
-    // document.getElementById("9").disabled = false;
-    // document.getElementById("10").disabled = false;
-    // document.getElementById("11").disabled = false;
-    // document.getElementById("12").disabled = false;
-    // document.getElementById("13").disabled = false;
-    // document.getElementById("14").disabled = false;
-
     // Player1
 
     // document.getElementById("Button").disabled = true;

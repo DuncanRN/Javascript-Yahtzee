@@ -47,7 +47,7 @@ const PlayerForm = ({updatePlayer, postPlayer, setPlayersNamesFromForm}) =>{  //
 
             <input  onChange={onChange}type="text" id="player_name6" v-model="player_name" placeholder="Player Name" />
 
-            <input className="roll-dice-button" type="submit" value="Save" id="save"/>
+            <input className="roll-dice-button" type="submit" value="Let's Play" id="save"/>
 
         </form>
     )

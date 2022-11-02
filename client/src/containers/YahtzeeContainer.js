@@ -17,12 +17,12 @@ const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
 
-const [scores1, setScores1] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
-const [scores2, setScores2] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
-const [scores3, setScores3] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
-const [scores4, setScores4] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
-const [scores5, setScores5] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
-const [scores6, setScores6] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
+const [scores1, setScores1] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]) // fifteen nulls
+const [scores2, setScores2] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]) // fifteen nulls
+const [scores3, setScores3] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]) // fifteen nulls
+const [scores4, setScores4] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]) // fifteen nulls
+const [scores5, setScores5] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]) // fifteen nulls
+const [scores6, setScores6] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]) // fifteen nulls
                                             
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
 const [players, setPlayers] = useState([]);
@@ -66,59 +66,59 @@ const calculateTotals = (tempScores) => {
   // set scores for Upper Total, Lower Total, and Grand total
   
   if (currentPlayer=="Player1"){
-    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores); //Upper_Total
     tempScores[7]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores); //Lower_Total
     tempScores[15]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("16", currentRoll, tempScores); //Grand_Total
     tempScores[16]=scoreToSet;
     setScores1(tempScores);
 
   }
 
   else if(currentPlayer=="Player2"){
-    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
     tempScores[15]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("16", currentRoll, tempScores);
     tempScores[16]=scoreToSet;
     setScores2(tempScores);
   }
 
   else if(currentPlayer=="Player3"){
-    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
     tempScores[15]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("16", currentRoll, tempScores);
     tempScores[16]=scoreToSet;
     setScores3(tempScores);
   }
   else if(currentPlayer=="Player4"){
-    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
     tempScores[15]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("16", currentRoll, tempScores);
     tempScores[16]=scoreToSet;
     setScores4(tempScores);
   }
   else if(currentPlayer=="Player5"){
-    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
     tempScores[15]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("16", currentRoll, tempScores);
     tempScores[16]=scoreToSet;
     setScores5(tempScores);
   }
   else if(currentPlayer=="Player6"){
-    var scoreToSet=calculateCategoryScore("Upper_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Lower_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
     tempScores[15]=scoreToSet;
-    var scoreToSet=calculateCategoryScore("Grand_Total", currentRoll, tempScores);
+    var scoreToSet=calculateCategoryScore("16", currentRoll, tempScores);
     tempScores[16]=scoreToSet;
     setScores6(tempScores);
   }
@@ -194,6 +194,41 @@ const setScore = (categoryIDToSet) => {
   if (currentPlayer=="Player6"){
     scoresToUse = scores6;
   }
+  console.log("categoryIDToSet")
+  console.log(categoryIDToSet)
+
+  // console.table("scoresToUse")
+  // console.table(scoresToUse)
+
+// resolve categoryIDToSet for lower half of scoreboard 
+// it is a name, ie Chance, when it should be a number ie 14
+// if it's going to correctly disable th Chance button
+
+  if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
+
+  else if(categoryIDToSet=='Upper_Total') { categoryIDToSet='7'; }
+
+  else if(categoryIDToSet=='Three_of_a_Kind') { categoryIDToSet='8'; }
+
+  else if(categoryIDToSet=='Four_of_a_Kind') { categoryIDToSet='9'; }
+
+  else if(categoryIDToSet=='Full_House') { categoryIDToSet='10'; }
+
+  else if(categoryIDToSet=='Small_Straight') { categoryIDToSet='11'; }
+
+  else if(categoryIDToSet=='Large_Straight') { categoryIDToSet='12'; }
+
+  else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
+
+  else if(categoryIDToSet=="Chance") { categoryIDToSet='14'; }  // this is happening
+
+  console.log("categoryIDToSet after if statements")
+  console.log(categoryIDToSet);
+  console.log("");
+
+
+
+
 
   if (scoresToUse[categoryIDToSet] != null) {
     console.log("Sorry! Score input already!")
@@ -244,30 +279,39 @@ const setScore = (categoryIDToSet) => {
   }
 
 
-  if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
+  console.log("before if statement about if categoryIDToSet == 'Bonus' etc ")
+  console.log(categoryIDToSet);
 
-  else if(categoryIDToSet=='Upper_Total') { categoryIDToSet='7'; }
+  // if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
 
-  else if(categoryIDToSet=='Three_of_a_Kind') { categoryIDToSet='8'; }
+  // else if(categoryIDToSet=='Upper_Total') { categoryIDToSet='7'; }
 
-  else if(categoryIDToSet=='Four_of_a_Kind') { categoryIDToSet='9'; }
+  // else if(categoryIDToSet=='Three_of_a_Kind') { categoryIDToSet='8'; }
 
-  else if(categoryIDToSet=='Full_House') { categoryIDToSet='10'; }
+  // else if(categoryIDToSet=='Four_of_a_Kind') { categoryIDToSet='9'; }
 
-  else if(categoryIDToSet=='Small_Straight') { categoryIDToSet='11'; }
+  // else if(categoryIDToSet=='Full_House') { categoryIDToSet='10'; }
 
-  else if(categoryIDToSet=='Large_Straight') { categoryIDToSet='12'; }
+  // else if(categoryIDToSet=='Small_Straight') { categoryIDToSet='11'; }
 
-  else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
+  // else if(categoryIDToSet=='Large_Straight') { categoryIDToSet='12'; }
 
-  else if(categoryIDToSet=='Chance') { categoryIDToSet='14'; }
+  // else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
 
+  // else if(categoryIDToSet=="Chance") { categoryIDToSet='14'; }  // this is happening
 
+  // console.log(categoryIDToSet);
+  // console.log("");
 
   if (currentPlayer=="Player1"){
 
     const tempScores = scores1.map(score => score);
     tempScores[categoryIDToSet]=scoreToSet;
+
+    console.log("in current Player == Player1")
+    console.log("categoryID is")
+    console.log(categoryIDToSet)
+
   
     setScores1(tempScores);
 
@@ -424,7 +468,7 @@ const setPlayersNamesFromForm = (newFormData) => {
             </div>
 }
 
-            <div className="score-sheet">
+            <div className="score-sheet-outer">
                 <ScoreSheet 
                   scores1={scores1}
                   scores2={scores2}

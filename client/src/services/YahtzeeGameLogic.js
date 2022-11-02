@@ -47,7 +47,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         const score = (arrayOfAllThisNumber.length * thisNumber)
         return score;
     }
-    else if(categoryIDToSet=="Bonus")
+    else if(categoryIDToSet=="6") // Bonus
     {
 
         const tempScores = scores.map(score => score);
@@ -65,7 +65,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         }
 
     }
-    else if(categoryIDToSet=="Upper_Total")
+    else if(categoryIDToSet=="7") // Upper_Total
     {
         const tempScores = scores.map(score => score);
         const valueOfFirstSevenCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5]+tempScores[6];
@@ -73,7 +73,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
     }
 
-    else if(categoryIDToSet=="Three_of_a_Kind")
+    else if(categoryIDToSet=="8") // Three of a Kind
     { 
         var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
@@ -86,7 +86,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
     }
 
-    else if(categoryIDToSet=="Four_of_a_Kind")
+    else if(categoryIDToSet=="9") // Four_of_a_Kind
     { 
         var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
@@ -99,7 +99,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
     }
 
-    else if(categoryIDToSet=="Full_House")
+    else if(categoryIDToSet=="10") // Full_House
     { 
         var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
@@ -114,7 +114,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         else {return 0}
     }
 
-    else if(categoryIDToSet=="Small_Straight")
+    else if(categoryIDToSet=="11") // Small_Straight
     { 
         var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
@@ -132,7 +132,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         return 0;
     }
 
-    else if(categoryIDToSet=="Large_Straight")
+    else if(categoryIDToSet=="12") //Large_Straight
     { 
         var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
@@ -147,7 +147,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         return 0
     }
 
-    else if(categoryIDToSet=="Yahtzee")
+    else if(categoryIDToSet=="13") // Yahtzee
     { 
         var numberIncidences = arrayOfCurrentRoll.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
@@ -160,13 +160,13 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         return 0
     }
 
-    else if(categoryIDToSet=="Chance")
+    else if(categoryIDToSet=="14") // Chance
     {
         const total = arrayOfCurrentRoll[0] + arrayOfCurrentRoll[1] + arrayOfCurrentRoll[2] + arrayOfCurrentRoll[3] + arrayOfCurrentRoll[4]
         return total;
     }
 
-    else if(categoryIDToSet=="Lower_Total")
+    else if(categoryIDToSet=="15") // Lower_Total
     {
         const tempScores = scores.map(score => score);
 
@@ -181,7 +181,7 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
 
     }
 
-    else if(categoryIDToSet=="Grand_Total")
+    else if(categoryIDToSet=="16") // Grand_Total
     {
         const tempScores = scores.map(score => score);
         var scoreForGrandTotal=0;
