@@ -21,37 +21,29 @@ const YahtzeeService = {
         .then(res => res.json());
     },
 
-//UPDATE PLAYER   - PUT
+// UPDATE PLAYER   - PUT
 
-  //   updatePlayer(player) {
-  //   return fetch(baseRollsURL + player._id, {
-  //     method: 'PUT',
-  //     body: JSON.stringify(player),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     .then(res => res.json());
-  // },
+    updatePlayer(player) {
+    return fetch(baseRollsURL + player._id, {
+      method: 'PUT',
+      body: JSON.stringify(player),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json());
+  },
 
-//POST PLAYER
+// POST PLAYER
 
-//   export const postPlayer = (payload) => {
-//   return fetch(baseURL, {
-//       method: 'POST',
-//       body: JSON.stringify(payload),
-//       headers: { 'Content-Type': 'application/json'}
-//   })
-//   .then(res => res.json())
-// }
-
-  // deleteRoll(id) {
-  //   return fetch(baseRollsURL + id, {
-  //     method: 'DELETE'
-  //   });
-  // }
-
-
+    postPlayer(payload) {
+  return fetch(baseRollsURL, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json'}
+  })
+  .then(res => res.json())
+}
 
 };
 

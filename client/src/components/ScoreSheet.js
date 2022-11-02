@@ -2,8 +2,10 @@ import React from 'react';
 
 const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, currentRoll, playersNames, setScore}) => {
 
+    let errorMessage;
+
     const handleScoreClick = function(event) {
-        setScore(event.target.value);
+        errorMessage = setScore(event.target.value);
         // event.currentTarget.disabled = true;
     };
 
@@ -304,7 +306,8 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
     
     return (
         <div className="score-sheet">
-            
+
+            <div>{errorMessage}</div>
 
             <div className="upper-scores">
                 
@@ -316,7 +319,7 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
                     <tr><td><button className={buttonclass4} id="3" value="3" onClick={handleScoreClick}>Fours: </button></td>    <td>{outputP1_4}</td> <td>{outputP2_4}</td> <td>{outputP3_4}</td> <td>{outputP4_4}</td> <td>{outputP5_4}</td> <td>{outputP6_4}</td> </tr>
                     <tr><td><button className={buttonclass5} id="4" value="4" onClick={handleScoreClick}>Fives: </button></td>    <td>{outputP1_5}</td> <td>{outputP2_5}</td> <td>{outputP3_5}</td> <td>{outputP4_5}</td> <td>{outputP5_5}</td> <td>{outputP6_5}</td> </tr>
                     <tr><td><button className={buttonclass6} id="5" value="5" onClick={handleScoreClick}>Sixes: </button></td>    <td>{outputP1_6}</td> <td>{outputP2_6}</td> <td>{outputP3_6}</td> <td>{outputP4_6}</td> <td>{outputP5_6}</td> <td>{outputP6_6}</td> </tr>
-                    <tr><td><button className={buttonclass7} id="6" value="Bonus" >Bonus: </button></td> <td>{outputP1_7}</td> <td>{outputP2_7}</td> <td>{outputP3_7}</td> <td>{outputP4_7}</td> <td>{outputP5_7}</td> <td>{outputP6_7}</td> </tr>
+                    <tr><td><button className={buttonclass7} id="6" value="Bonus" onClick={handleScoreClick}>Bonus: </button></td> <td>{outputP1_7}</td> <td>{outputP2_7}</td> <td>{outputP3_7}</td> <td>{outputP4_7}</td> <td>{outputP5_7}</td> <td>{outputP6_7}</td> </tr>
                     
                     <tr><td><button className="buttonTotal" id="7" >Upper Total: </button></td> <td>{outputP1_8}</td> <td>  {outputP2_8}</td> <td> {outputP3_8}</td> <td> {outputP4_8}</td> <td> {outputP5_8}</td> <td> {outputP6_8} </td></tr>
                 

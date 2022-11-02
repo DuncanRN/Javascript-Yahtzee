@@ -36,9 +36,9 @@ const [scores6, setScores6] = useState([null, null, null, null, null,
                                             null, null, null]) // thirteen nulls
                                             
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
-const [players, setPlayers] = useState(["Player1", "Player2", "Player3", "Player4", "Player5", "Player6"]);
+const [players, setPlayers] = useState([]);
 
-const [playersNames, setPlayersNames] = useState(["Duncan", "Louise",  "Cammy", "Lucy", "Colin", "Matt"]);
+const [playersNames, setPlayersNames] = useState([]);
 const [isEndGame, setIsEndGame] = useState(false);
 
 
@@ -208,7 +208,7 @@ const setScore = (categoryIDToSet) => {
 
   if (scoresToUse[categoryIDToSet] != null) {
     console.log("Sorry! Score input already!")
-    return
+    return ("Score already input!")
   }
   
   
@@ -368,6 +368,29 @@ const updatePlayer = updatedPlayer => {
 //   setPlayers(updatedPlayers);
 };
 
+const setPlayersNamesFromForm = (newFormData) => {
+  setPlayersNames([newFormData["player_name1"],newFormData["player_name2"],newFormData["player_name3"],newFormData["player_name4"],newFormData["player_name5"],newFormData["player_name6"]])
+  if (newFormData["player_name1"]) {
+    setPlayers(["Player1"])
+  }
+  if (newFormData["player_name1"] && newFormData["player_name2"]) {
+    setPlayers(["Player1", "Player2"])
+  }
+  if (newFormData["player_name1"] && newFormData["player_name2"] && newFormData["player_name3"]) {
+    setPlayers(["Player1", "Player2", "Player3"])
+  }
+  if (newFormData["player_name1"] && newFormData["player_name2"] && newFormData["player_name3"] && newFormData["player_name4"]) {
+    setPlayers(["Player1", "Player2", "Player3", "Player4"])
+  }
+  if (newFormData["player_name1"] && newFormData["player_name2"] && newFormData["player_name3"] && newFormData["player_name4"] && newFormData["player_name5"]) {
+    setPlayers(["Player1", "Player2", "Player3", "Player4", "Player5"])
+  }
+  if (newFormData["player_name1"] && newFormData["player_name2"] && newFormData["player_name3"] && newFormData["player_name4"] && newFormData["player_name5"] && newFormData["player_name6"]) {
+    setPlayers(["Player1", "Player2", "Player3", "Player4", "Player5", "Player6"])
+  }
+
+};
+
 
 
   return (
@@ -385,7 +408,10 @@ const updatePlayer = updatedPlayer => {
             <div className="dice-and-roller">
                 <div className="dice-display">
                   <div>
-                    {/* <PlayerForm updateName={updatePlayer}/> //PLAYER FORM CALLED */}
+                    {
+                      !players.length ?
+                    <PlayerForm updateName={updatePlayer} setPlayersNamesFromForm={setPlayersNamesFromForm}/> 
+                    : null }
                   </div>
                   <ul className='dice-container-display'>
                     <DiceDisplay
@@ -427,6 +453,7 @@ const updatePlayer = updatedPlayer => {
 
           </div>
         </div>
+          
   );
 
 };

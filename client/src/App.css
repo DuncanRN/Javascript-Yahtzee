@@ -143,24 +143,6 @@ body{
   justify-content: center; 
 }
 
-.roll-dice-button{
-  font-size:15px;
-  font-family:Arial;
-  width:140px;
-  height:40px;
-  border-width:1px;
-  color:rgb(15, 13, 13);
-  border-color:#314179;
-  font-weight:bold;
-  border-top-left-radius:0px;
-  border-top-right-radius:0px;
-  border-bottom-left-radius:0px;
-  border-bottom-right-radius:0px;
-  box-shadow:inset 0px 1px 0px 0px #8fa1c6;
-  background:linear-gradient(#91dccd, #7aa6a6);
-  border-radius:4px;
-  }
-
   .roll-dice-section{
     display: flex;
     justify-content: center; 
@@ -226,3 +208,40 @@ th {
   display: flex;
   justify-content: center;
 }
+
+.player-form {
+  margin-top: 1em;
+  margin-right: 3em;
+  display: flex;
+  flex-direction:column;
+}
+
+.player-form input {
+  margin-top: 0.5em;
+  padding: 0.66em;
+  border-radius: 50px;
+}
+
+#save {
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.roll-dice-button{
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:40px;
+  border-width:1px;
+  color:rgb(15, 13, 13);
+  border-color:#314179;
+  font-weight:bold;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  box-shadow:inset 0px 1px 0px 0px #8fa1c6;
+  background:linear-gradient(#91dccd, #7aa6a6);
+  border-radius:4px;
+  }
