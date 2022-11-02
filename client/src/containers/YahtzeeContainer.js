@@ -8,6 +8,9 @@ import ScoreSheet from '../components/ScoreSheet';
 import YahtzeeService from '../services/YahtzeeService';
 import {calculateCategoryScore} from '../services/YahtzeeGameLogic';
 
+import PlayerForm from '../components/PlayerForm';
+import {updatePlayer} from '../services/YahtzeeService'; // ADDED
+
 const MainContainer = () => {
 
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
@@ -324,10 +327,22 @@ const getPlayerName = () => {
   if(rollsThisTurn=='1') { firstSecondThirdOutput=" 1st "; }
   else if(rollsThisTurn=='2') { firstSecondThirdOutput=" 2nd "; }
 
+//ADDED UPDATE FUNCTION -  HAVE TO UPDATE WHOLE PLAYER (BUT WE WILL ONLY ALLOW TO UPDATE NAME)
+
+const updatePlayer = updatedPlayer => {
+//   //  (req to server to update booking in DB)
+//   YahtzeeService.updatePlayer(updatedPlayer);
+
+// //  (update locally)
+//   const updatedPlayerIndex = players.findIndex(player => player._id === updatedPlayer._id);
+//   const updatedPlayers = [...players];
+//   updatedPlayers[updatedPlayerIndex] = updatedPlayer;
+//   setPlayers(updatedPlayers);
+};
+
 
 
   return (
-    <>
       <div className="whole-yahtzee-game">
         <div className="title">
           
@@ -341,6 +356,9 @@ const getPlayerName = () => {
 
             <div className="dice-and-roller">
                 <div className="dice-display">
+                  <div>
+                    {/* <PlayerForm updateName={updatePlayer}/> //PLAYER FORM CALLED */}
+                  </div>
                   <ul className='dice-container-display'>
                     <DiceDisplay
                       currentRoll={currentRoll}
@@ -381,7 +399,6 @@ const getPlayerName = () => {
 
           </div>
         </div>
-    </>
   );
 
 };
