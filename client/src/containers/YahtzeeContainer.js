@@ -184,6 +184,34 @@ const checkEndGame = () => {
 };
 
 const setScore = (categoryIDToSet) => {
+
+  var scoresToUse;
+  
+  if (currentPlayer=="Player1"){
+    scoresToUse = scores1;
+  }
+  if (currentPlayer=="Player2"){
+    scoresToUse = scores2;
+  }
+  if (currentPlayer=="Player3"){
+    scoresToUse = scores3;
+  }
+  if (currentPlayer=="Player4"){
+    scoresToUse = scores4;
+  }
+  if (currentPlayer=="Player5"){
+    scoresToUse = scores5;
+  }
+  if (currentPlayer=="Player6"){
+    scoresToUse = scores6;
+  }
+
+  if (scoresToUse[categoryIDToSet] != null) {
+    console.log("Sorry! Score input already!")
+    return
+  }
+  
+  
   
   // in here we check if the current player has a score set in this category. 
   // if they do we return an error message. 
