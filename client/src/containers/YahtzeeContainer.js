@@ -16,24 +16,13 @@ const MainContainer = () => {
 const [currentRoll, setCurrentRoll] = useState([null, null, null, null, null])
 const [lockedDice, setLockedDice] = useState([false, false, false, false, false])
 const [rollsThisTurn, setRollsThisTurn] = useState(0)
-const [scores1, setScores1] = useState([null, null, null, null, null,
-                                      null, null, null, null, null,
-                                      null, null, null]) // thirteen nulls
-const [scores2, setScores2] = useState([null, null, null, null, null,
-                                      null, null, null, null, null,
-                                      null, null, null]) // thirteen nulls
-const [scores3, setScores3] = useState([null, null, null, null, null,
-                                      null, null, null, null, null,
-                                      null, null, null]) // thirteen nulls
-const [scores4, setScores4] = useState([null, null, null, null, null,
-                                        null, null, null, null, null,
-                                        null, null, null]) // thirteen nulls
-const [scores5, setScores5] = useState([null, null, null, null, null,
-                                          null, null, null, null, null,
-                                          null, null, null]) // thirteen nulls
-const [scores6, setScores6] = useState([null, null, null, null, null,
-                                            null, null, null, null, null,
-                                            null, null, null]) // thirteen nulls
+
+const [scores1, setScores1] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
+const [scores2, setScores2] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
+const [scores3, setScores3] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
+const [scores4, setScores4] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
+const [scores5, setScores5] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
+const [scores6, setScores6] = useState([null, null, null, null, null, null, null, null, null, null, null, null, null]) // thirteen nulls
                                             
 const [currentPlayer, setCurrentPlayer] = useState("Player1");
 const [players, setPlayers] = useState([]);
@@ -394,25 +383,24 @@ const setPlayersNamesFromForm = (newFormData) => {
 
 
   return (
-      <div className="whole-yahtzee-game">
-        <div className="title">
-          
-        </div>
-            
+      <div className="whole-yahtzee-game"> 
+        <div>
+          {
+          !players.length ?
+          <PlayerForm updateName={updatePlayer} setPlayersNamesFromForm={setPlayersNamesFromForm}/> 
+          : null }
+        </div>     
+
+        {players.length ? 
         <div className="game-container">
+
 
           {isEndGame ?
           <h2 className="game-over">Game Over!</h2>
           :
-
             <div className="dice-and-roller">
                 <div className="dice-display">
-                  <div>
-                    {
-                      !players.length ?
-                    <PlayerForm updateName={updatePlayer} setPlayersNamesFromForm={setPlayersNamesFromForm}/> 
-                    : null }
-                  </div>
+
                   <ul className='dice-container-display'>
                     <DiceDisplay
                       currentRoll={currentRoll}
@@ -452,6 +440,7 @@ const setPlayersNamesFromForm = (newFormData) => {
             </div>
 
           </div>
+          : null }
         </div>
           
   );
