@@ -143,7 +143,7 @@ body{
   justify-content: center; 
 }
 
-  .roll-dice-section{
+.roll-dice-section{
     display: flex;
     justify-content: center; 
   }
@@ -180,6 +180,7 @@ ul {
 
 .score-sheet {
   display: flex;
+  margin-left: 11em ;
   flex-direction: column;
   align-items: left;
 }
@@ -210,10 +211,12 @@ th {
 }
 
 .player-form {
-  margin-top: 1em;
-  margin-right: 3em;
+  margin-left: 40%;
+  margin-right: 40%;
   display: flex;
+  justify-content: center;
   flex-direction:column;
+  width: 350px;
 }
 
 .player-form input {
