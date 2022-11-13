@@ -1,7 +1,6 @@
 // Keep as much of the game logic in here as we can.
 
 export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => {
-    // TODO write the big if elseif statement here for all 13 categories
 
     const arrayOfCurrentRoll=[currentRoll[0], currentRoll[1], currentRoll[2], currentRoll[3], currentRoll[4]]
 
@@ -54,13 +53,9 @@ export const calculateCategoryScore = (categoryIDToSet, currentRoll, scores) => 
         const valueOfFirstSixCategories = tempScores[0]+tempScores[1]+tempScores[2]+tempScores[3]+tempScores[4]+tempScores[5];
         
         if(valueOfFirstSixCategories>63){
-            // console.log("in Bonus if successful");
-            // console.log(valueOfFirstSixCategories);
             return 35;
         }
         else{
-            // console.log("in Bonus if failed");
-            // console.log(valueOfFirstSixCategories);
             return 0;
         }
 

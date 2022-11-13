@@ -37,6 +37,10 @@ useEffect(() => {
 }, []);
 
 
+useEffect(() => {
+  checkEndGame()
+}, [scores1, scores2, scores3, scores4, scores5, scores6]);
+
 const rollDice = () => {
   const tempDice = currentRoll;
   for (let i = 0; i < lockedDice.length; i++) {
@@ -151,31 +155,19 @@ const setNextPlayer = () => {
 };
 
 const checkEndGame = () => {
-  // function to check if we are at the end of the game - last player takes their last turn.
+  // function to check if we are at the end of the game - last player has just taken their final turn.
+  // and we have come back round to Player1
+  // we test to see if all of Player1's scores are not null. If so we output "Game Over"
+
   const numberOfPlayers=players.length
+
   const playerPosition=players.indexOf(currentPlayer)
-  var scoresToUse
+  var scoresToUse;
 
-  if ((playerPosition+1)==numberOfPlayers) {
-    if (currentPlayer=="Player1"){
-      scoresToUse = scores1;
-    }
-    if (currentPlayer=="Player2"){
-      scoresToUse = scores2;
-    }
-    if (currentPlayer=="Player3"){
-      scoresToUse = scores3;
-    }
-    if (currentPlayer=="Player4"){
-      scoresToUse = scores4;
-    }
-    if (currentPlayer=="Player5"){
-      scoresToUse = scores5;
-    }
-    if (currentPlayer=="Player6"){
-      scoresToUse = scores6;
-    }
+  if ((currentPlayer)=="Player1") {
 
+    scoresToUse = scores1;
+    
     if ((scoresToUse.every(element => element !== null))) {
       console.log("EndGAME")
       setIsEndGame(true)
@@ -208,12 +200,6 @@ const setScore = (categoryIDToSet) => {
   console.log("categoryIDToSet")
   console.log(categoryIDToSet)
 
-  // console.table("scoresToUse")
-  // console.table(scoresToUse)
-
-// resolve categoryIDToSet for lower half of scoreboard 
-// it is a name, ie Chance, when it should be a number ie 14
-// if it's going to correctly disable th Chance button
 
   if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
 
@@ -231,21 +217,12 @@ const setScore = (categoryIDToSet) => {
 
   else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
 
-  else if(categoryIDToSet=="Chance") { categoryIDToSet='14'; }  // this is happening
-
-  console.log("categoryIDToSet after if statements")
-  console.log(categoryIDToSet);
-  console.log("");
-
-
-
-
+  else if(categoryIDToSet=="Chance") { categoryIDToSet='14'; } 
 
   if (scoresToUse[categoryIDToSet] != null) {
     console.log("Sorry! Score input already!")
     return ("Score already input!")
   }
-  
   
   
   // in here we check if the current player has a score set in this category. 
@@ -292,27 +269,6 @@ const setScore = (categoryIDToSet) => {
   console.log("before if statement about if categoryIDToSet == 'Bonus' etc ")
   console.log(categoryIDToSet);
 
-  // if(categoryIDToSet=='Bonus') { categoryIDToSet='6'; }
-
-  // else if(categoryIDToSet=='Upper_Total') { categoryIDToSet='7'; }
-
-  // else if(categoryIDToSet=='Three_of_a_Kind') { categoryIDToSet='8'; }
-
-  // else if(categoryIDToSet=='Four_of_a_Kind') { categoryIDToSet='9'; }
-
-  // else if(categoryIDToSet=='Full_House') { categoryIDToSet='10'; }
-
-  // else if(categoryIDToSet=='Small_Straight') { categoryIDToSet='11'; }
-
-  // else if(categoryIDToSet=='Large_Straight') { categoryIDToSet='12'; }
-
-  // else if(categoryIDToSet=='Yahtzee') { categoryIDToSet='13'; }
-
-  // else if(categoryIDToSet=="Chance") { categoryIDToSet='14'; }  // this is happening
-
-  // console.log(categoryIDToSet);
-  // console.log("");
-
   if (currentPlayer=="Player1"){
 
     const tempScores = scores1.map(score => score);
@@ -326,7 +282,8 @@ const setScore = (categoryIDToSet) => {
     setScores1(tempScores);
 
     calculateTotals(tempScores);
-    checkEndGame()
+    // checkEndGame()
+    // now we are checking for endgame when any of the 6 score states change. see the useEffect above.
     setNextPlayer()
   }
 
@@ -337,8 +294,8 @@ const setScore = (categoryIDToSet) => {
     setScores2(tempScores);
 
     calculateTotals(tempScores);
-    checkEndGame()
-    setNextPlayer()
+    checkEndGame();
+    setNextPlayer();
   }
 
   else if(currentPlayer=="Player3"){
@@ -348,8 +305,8 @@ const setScore = (categoryIDToSet) => {
     setScores3(tempScores);
 
     calculateTotals(tempScores);
-    checkEndGame()
-    setNextPlayer()
+    checkEndGame();
+    setNextPlayer();
   }
 
   //
@@ -360,8 +317,8 @@ const setScore = (categoryIDToSet) => {
     setScores4(tempScores);
 
     calculateTotals(tempScores);
-    checkEndGame()
-    setNextPlayer()
+    checkEndGame();
+    setNextPlayer();
   }
 
   else if(currentPlayer=="Player5"){
@@ -371,8 +328,8 @@ const setScore = (categoryIDToSet) => {
     setScores5(tempScores);
 
     calculateTotals(tempScores);
-    checkEndGame()
-    setNextPlayer()
+    checkEndGame();
+    setNextPlayer();
   }
 
   else if(currentPlayer=="Player6"){
@@ -382,8 +339,8 @@ const setScore = (categoryIDToSet) => {
     setScores6(tempScores);
 
     calculateTotals(tempScores);
-    checkEndGame()
-    setNextPlayer()
+    checkEndGame();
+    setNextPlayer();
   }
 };
 
@@ -393,7 +350,7 @@ const getPlayerName = () => {
 };
 
 
-  // fix output so it says something like "Louise's Roll, then Louise's 1st Roll"
+  // fixed output so it says something like "Louise's Roll, then Louise's 1st Roll"
   var firstSecondThirdOutput="";
   if(rollsThisTurn=='1') { firstSecondThirdOutput=" 1st "; }
   else if(rollsThisTurn=='2') { firstSecondThirdOutput=" 2nd "; }
