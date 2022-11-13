@@ -79,6 +79,8 @@ const calculateTotals = (tempScores) => {
   }
 
   else if(currentPlayer=="Player2"){
+    var scoreToSet=calculateCategoryScore("6", currentRoll, tempScores); //Bonus
+    tempScores[6]=scoreToSet;
     var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
@@ -89,6 +91,8 @@ const calculateTotals = (tempScores) => {
   }
 
   else if(currentPlayer=="Player3"){
+    var scoreToSet=calculateCategoryScore("6", currentRoll, tempScores); //Bonus
+    tempScores[6]=scoreToSet;
     var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
@@ -98,6 +102,8 @@ const calculateTotals = (tempScores) => {
     setScores3(tempScores);
   }
   else if(currentPlayer=="Player4"){
+    var scoreToSet=calculateCategoryScore("6", currentRoll, tempScores); //Bonus
+    tempScores[6]=scoreToSet;
     var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
@@ -107,6 +113,8 @@ const calculateTotals = (tempScores) => {
     setScores4(tempScores);
   }
   else if(currentPlayer=="Player5"){
+    var scoreToSet=calculateCategoryScore("6", currentRoll, tempScores); //Bonus
+    tempScores[6]=scoreToSet;
     var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
@@ -116,6 +124,8 @@ const calculateTotals = (tempScores) => {
     setScores5(tempScores);
   }
   else if(currentPlayer=="Player6"){
+    var scoreToSet=calculateCategoryScore("6", currentRoll, tempScores); //Bonus
+    tempScores[6]=scoreToSet;
     var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores);
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores);
