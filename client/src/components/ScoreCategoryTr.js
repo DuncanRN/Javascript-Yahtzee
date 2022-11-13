@@ -35,7 +35,37 @@ const ScoreCategoryTr = ({categoryId, tempScores1, tempScores2, tempScores3, tem
             break;
         case "6":
             categoryTitle="Bonus";
-            break;            
+            break;   
+        case "7":
+            categoryTitle="Lower Total";
+            break;   
+        case "8":
+            categoryTitle="Three of a Kind";
+            break;   
+        case "9":
+            categoryTitle="Four of a Kind";
+            break;   
+        case "10":
+            categoryTitle="Full House";
+            break; 
+        case "11":
+            categoryTitle="Small Straight";
+            break; 
+        case "12":
+            categoryTitle="Large Straight";
+            break;   
+        case "13":
+            categoryTitle="Yahtzee";
+            break;   
+        case "14":
+            categoryTitle="Chance";
+            break; 
+        case "15":
+            categoryTitle="Lower Total";
+            break;         
+        case "16":
+            categoryTitle="Grand Total";
+            break;                                                
         default:
             categoryTitle="DEFAULT";
     }
