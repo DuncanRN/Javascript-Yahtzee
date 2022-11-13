@@ -63,9 +63,11 @@ const toggleLockDice = (i) => {
 };
 
 const calculateTotals = (tempScores) => {
-  // set scores for Upper Total, Lower Total, and Grand total
+  // set scores for Upper Total, Lower Total, and Grand total & Bonus
   
   if (currentPlayer=="Player1"){
+    var scoreToSet=calculateCategoryScore("6", currentRoll, tempScores); //Bonus
+    tempScores[6]=scoreToSet;
     var scoreToSet=calculateCategoryScore("7", currentRoll, tempScores); //Upper_Total
     tempScores[7]=scoreToSet;
     var scoreToSet=calculateCategoryScore("15", currentRoll, tempScores); //Lower_Total

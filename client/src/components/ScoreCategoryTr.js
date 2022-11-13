@@ -78,5 +78,4 @@ const ScoreCategoryTr = ({categoryId, tempScores1, tempScores2, tempScores3, tem
 
 }
 
-
 export default ScoreCategoryTr;

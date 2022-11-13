@@ -2,13 +2,13 @@ import React from 'react';
 import ScoreCategoryTr from './ScoreCategoryTr';
 
 const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, currentRoll, playersNames, setScore}) => {
-    
-    let errorMessage;
 
-    const handleScoreClick = function(event) {
-        errorMessage = setScore(event.target.value);
-        // event.currentTarget.disabled = true;
-    };
+    // let errorMessage;
+
+    // const handleScoreClick = function(event) {
+    //     errorMessage = setScore(event.target.value);
+    //     // event.currentTarget.disabled = true;
+    // };
 
     // map scores into tempScores
     const tempScores1 = scores1.map(score => score);
@@ -301,7 +301,7 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
     return (
         <div className="score-sheet">
 
-            <div>{errorMessage}</div>
+            {/* <div>{errorMessage}</div> */}
 
             <div className="upper-scores">
                 
@@ -317,9 +317,7 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
                     <ScoreCategoryTr  categoryId="5" tempScores1={tempScores1}  tempScores2={tempScores2}  tempScores3={tempScores3}  tempScores4={tempScores4}  tempScores5={tempScores5}  tempScores6={tempScores6} setScore={setScore} />
                     <ScoreCategoryTr  categoryId="6" tempScores1={tempScores1}  tempScores2={tempScores2}  tempScores3={tempScores3}  tempScores4={tempScores4}  tempScores5={tempScores5}  tempScores6={tempScores6} setScore={setScore} />
 
-
                     <ScoreCategoryTr  categoryId="7" tempScores1={tempScores1}  tempScores2={tempScores2}  tempScores3={tempScores3}  tempScores4={tempScores4}  tempScores5={tempScores5}  tempScores6={tempScores6} setScore={setScore} /> 
-
 
                     {/* <tr><td><button className={buttonclass1} id="0" value="0" onClick={handleScoreClick} >Ones:</button></td><td>{outputP1_1}</td><td>{outputP2_1}</td><td>{outputP3_1}</td><td>{outputP4_1}</td><td>{outputP5_1}</td><td>{outputP6_1}</td></tr>
                      */}
@@ -368,8 +366,5 @@ const ScoreSheet = ({scores1, scores2, scores3, scores4, scores5, scores6, curre
 
 
 }
-
-
-
 
 export default ScoreSheet;
