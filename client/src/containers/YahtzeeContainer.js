@@ -144,7 +144,6 @@ const checkEndGame = () => {
   const playerPosition=players.indexOf(currentPlayer)
   var scoresToUse
 
-
   if ((playerPosition+1)==numberOfPlayers) {
     if (currentPlayer=="Player1"){
       scoresToUse = scores1;
@@ -254,7 +253,6 @@ const setScore = (categoryIDToSet) => {
   var scoreToSet = 0;
 
   if (currentPlayer=="Player1"){
-
     scoreToSet=calculateCategoryScore(categoryIDToSet, currentRoll, scores1);
   }
 

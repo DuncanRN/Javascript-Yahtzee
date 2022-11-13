@@ -11,8 +11,6 @@
   display: flex;
   justify-content: center;
 }
-
-
   
 body{
   background: url("./img/b2.jpeg");
@@ -73,41 +71,6 @@ body{
   border-bottom-right-radius:0px;
   box-shadow:inset 0px 1px 0px 0px #8fa1c6;
   background:linear-gradient(#91dccd, #62c8c8);
-}
-
-
-.buttonScoresDeactivated{
-  font-size:15px;
-  font-family:Arial;
-  width:140px;
-  height:40px;
-  border-width:1px;
-  color:#fff;
-  border-color:#314179;
-  font-weight:bold;
-  border-top-left-radius:0px;
-  border-top-right-radius:0px;
-  border-bottom-left-radius:0px;
-  border-bottom-right-radius:0px;
-  box-shadow:inset 0px 1px 0px 0px #8fa1c6;
-  background:linear-gradient(#063849, #143039);
-
-
-  /* Duncan has temporarily made Deactivated button and normal look the same. */
-  /* font-size:15px;
-  font-family:Arial;
-  width:140px;
-  height:40px;
-  border-width:1px;
-  color:rgb(39, 38, 38);
-  border-color:#314179;
-  font-weight:bold;
-  border-top-left-radius:0px;
-  border-top-right-radius:0px;
-  border-bottom-left-radius:0px;
-  border-bottom-right-radius:0px;
-  box-shadow:inset 0px 1px 0px 0px #8fa1c6;
-  background:linear-gradient(#b5c5eb, #98a0b1); */
 }
 
 .dice-display{

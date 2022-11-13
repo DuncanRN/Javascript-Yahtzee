@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleDice = ({dieNumber, toggleLockDice, index, isThisDiceLocked}) => {
+const SingleDice = ({dieNumber, key, index, toggleLockDice, isThisDiceLocked}) => {
 
     const handleClick = function() {
         toggleLockDice(index);
@@ -37,7 +37,7 @@ const SingleDice = ({dieNumber, toggleLockDice, index, isThisDiceLocked}) => {
   return (
     
     <div onClick={handleClick}  className={lockedOrUnlockedClass}> 
-    <img width="40" height="40" src={require(`${thisDiceImage}`)} /> 
+    <img key={key} id={key} width="40" height="40" src={require(`${thisDiceImage}`)} /> 
     </div>
   );
 };

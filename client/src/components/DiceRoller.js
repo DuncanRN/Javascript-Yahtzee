@@ -1,14 +1,5 @@
 import React from 'react';
 
-// TODO rewrite the return below so it maps? out each dice in currentRoll
-
-// TODO rewrite the return below to include a button which rerolls the dice
-
-// TODO rewrite the return below so we can have an onClick() to lock a specific dice
-
-// TODO if rollsThisTurn = 3 then we are at the end of the turn. don't show the "Roll Dice" button
-
-
 const DiceRoller = ({rollDice, rollsThisTurn}) => {
 
     const handleClick = function() {
@@ -33,9 +24,7 @@ const DiceRoller = ({rollDice, rollsThisTurn}) => {
             <div className='roll-dice-section'>
                 <button className="roll-dice-button" onClick={handleClick}>Roll!</button>
             </div>
-            {/* <div>
-                <h2 className='roll-the-dice-statement'>Roll the dice to start the game!</h2>
-            </div> */}
+            
             </>
         );
     }
