@@ -60,7 +60,7 @@ The current game is persisted both in state and in the database.
 
 The program should automatically calculate the users score.
 
-Extensions
+## Extensions
 Add a second player. Have the option to add player's names, their team's colour...
 
 Have up to 6 players, with a scorecard matching the rulebook of Yahtzee.
