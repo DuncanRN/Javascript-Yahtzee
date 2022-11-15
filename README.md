@@ -10,10 +10,12 @@ Javascript, React, HTML, CSS, MongoDB
 
 Here we have the initial form to add players names.
 
-And two screenshots of the game being played.
+
 
 
 <img src="https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg" alt="Yahtzee Players Name Form" width=50% height=50%>
+
+And two screenshots of the game being played.
 
 <img src="https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/2%20Screenshot%202022-11-15%20at%2009.28.40.jpg" alt="Yahtzee Gameplay 1" width=50% height=50%>
 
