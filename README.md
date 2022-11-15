@@ -1,4 +1,4 @@
-![Yahtzee Players Name Form](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg?raw=true)
+![Yahtzee Players Name Form](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg?raw=true  | width=100)
 
 
 ### Yahtzee App
