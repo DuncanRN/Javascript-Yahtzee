@@ -1,5 +1,8 @@
 ![Yahtzee Players Name Form](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg?raw=true)
 
+
+<img src="https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg" width=50% height=50%>
+
 ![Yahtzee Gameplay 1](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/2%20Screenshot%202022-11-15%20at%2009.28.40.jpg?raw=true)
 
 ![Yahtzee Gameplay 2](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/3%20Screenshot%202022-11-15%20at%2009.29.43.jpg?raw=true)
