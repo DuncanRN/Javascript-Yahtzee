@@ -1,9 +1,8 @@
 ![Yahtzee Players Name Form](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg?raw=true)
 
+![Yahtzee Gameplay 1](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/2%20Screenshot%202022-11-15%20at%2009.28.40.jpg?raw=true)
 
-![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
-
-![]([https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/1%20Screenshot%202022-11-15%20at%2009.28.12.jpg?raw=true) =250x250)
+![Yahtzee Gameplay 2](https://github.com/DuncanRN/Javascript-Yahtzee/blob/main/img_screenshots/3%20Screenshot%202022-11-15%20at%2009.29.43.jpg?raw=true)
 
 
 ### Yahtzee App
